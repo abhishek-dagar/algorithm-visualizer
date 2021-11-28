@@ -1,0 +1,14 @@
+@import "~common/stylesheet/index";
+
+.category {
+  justify-content: space-between;
+
+  .icon {
+    margin-left: 4px;
+  }
+}
+
+.expandable_list_item {
+  background-color: #161b22;
+  border-bottom: 1px solid $theme-dark;
+}

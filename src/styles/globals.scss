@@ -1,0 +1,69 @@
+@import "~common/stylesheet/index";
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
+
+html,
+body,
+#__next {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: $font-family-normal;
+  -webkit-font-smoothing: subpixel-antialiased;
+  user-select: none;
+  color: $color-font;
+  font-size: $font-size-normal;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  line-height: 1.15;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #333333;
+  border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  // background: rgb(100, 212, 184);
+  background: #5f5f5f;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  // background: rgb(24, 197, 154);
+  background: #7e7e7e;
+}

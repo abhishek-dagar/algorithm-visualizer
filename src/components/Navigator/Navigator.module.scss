@@ -1,0 +1,59 @@
+@import "~common/stylesheet/index";
+
+.navigator {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  position: relative;
+  background-color: $color-background;
+
+  .search_bar_container {
+    height: $line-height;
+    padding: 0 8px;
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid $theme-light;
+
+    &:focus-within {
+      background-color: $color-overlay;
+    }
+
+    .search_icon {
+      align-self: center;
+      margin-right: 8px;
+    }
+
+    .search_bar {
+      flex: 1;
+      box-sizing: border-box;
+    }
+  }
+
+  .algorithm_list {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .footer {
+    max-height: 30vh;
+    border-top: 1px solid $theme-light;
+    overflow-y: auto;
+  }
+  .closeNavigator{
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 5%;
+    text-align: center;
+    margin-bottom: 15%;
+    background-color: $theme-light;
+    position: absolute;
+    color: #bbb;
+    .search_icon{
+      position: absolute;
+      bottom: 30%;
+      right: 20%;
+    }
+  }
+}

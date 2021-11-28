@@ -1,0 +1,101 @@
+@import "~common/stylesheet/index";
+.navigation {
+  width: 60px;
+  background-color: $theme-dark;
+  .a {
+    text-decoration: none;
+    font-size: 12px;
+  }
+  .a:hover {
+    color: #bbb;
+  }
+  .logoContainer {
+    .Icon {
+      .logo {
+        width: 40px;
+        height: 40px;
+        margin: 25% 15%;
+        .image {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+  }
+  .navigationButtons {
+    text-align: center;
+    .navigationOptions {
+      list-style: none;
+      padding: 0;
+      margin-top: 30%;
+        .active {
+          background-color: $theme-light;
+          border-top-left-radius: 12px;
+          border-bottom-left-radius: 12px;
+        }
+        .navigationOption {
+          .activeBar {
+            width: 3px;
+            background-color: red;
+          }
+        }
+      a {
+        font-size: 25px;
+        .unactiveBar{
+          width: 3px;
+          background-color: $theme-dark;
+        }
+        .navigationOption {
+          padding-top: 10%;
+          display: flex;
+          flex-direction: row;
+          padding-bottom: 10%;
+          .nav_caret {
+            padding: 12px;
+            height: 80%;
+            width: 80%;
+            border-radius: 12px;
+          }
+          .tooltip {
+            visibility: hidden;
+            // background-color: $theme-dark;
+            background-color: rgb(11, 122, 248);
+            color: #fff;
+            width: 130px;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            left: 3.2%;
+            font-size: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            transition: 0;
+          }
+          .tooltip::after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent rgb(11, 122, 248) transparent transparent;
+          }
+        }
+      }
+      .navigationOption:hover {
+        color: white;
+        transition: all 0.4s ease;
+        .nav_caret {
+          background-color: rgb(11, 122, 248);
+        }
+        .tooltip {
+          visibility: visible;
+          padding: 10px;
+          transition: all 0.4s ease;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import "~common/stylesheet/index";
+.mainContainer {
+  background-color: rgb(190, 189, 189);
+  width: 100%;
+  overflow: hidden;
+  .backGround {
+    background-color: $theme-dark;
+    height: 80%;
+    width: 120%;
+    position: relative;
+    top: -10%;
+    left: -10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+  }
+  .title{
+    position: absolute;
+    top: 15%;
+    font-size: 7rem;
+  }
+}
+@media (max-width: 1198px) {
+ .mainContainer{
+   .backGround{
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+   }
+   .title{
+     top: 15%;
+     font-size: 5rem;
+   }
+ } 
+}
+@media (max-width: 454px) {
+ .mainContainer{
+   .title{
+     font-size: 2rem;
+   }
+ } 
+}

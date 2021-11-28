@@ -1,0 +1,17 @@
+@import "~common/stylesheet/index";
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100%;
+  .navBar{
+    z-index: 1000;
+  }
+  .ComponentContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100%;
+    width: 100%;
+  }
+}
