@@ -4,14 +4,23 @@
   flex-direction: row;
   align-items: stretch;
   height: 100%;
+  z-index: 1;
   .navBar{
-    z-index: 1000;
+    z-index: 100;
   }
   .ComponentContainer {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     height: 100%;
-    width: 100%;
+    width: 97%;
+  }
+}
+@media (max-width: 768px) {
+  .mainContainer{
+    flex-direction: column-reverse;
+    .ComponentContainer {
+      width: 100%;
+    }
   }
 }

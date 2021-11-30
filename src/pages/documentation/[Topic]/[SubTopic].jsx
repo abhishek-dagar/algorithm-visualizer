@@ -1,6 +1,6 @@
 import styles from "styles/docs.module.scss";
 import React, { useState, useEffect } from "react";
-import { ExpandableListItem, ListItem } from "components";
+import { SideMenu } from "components";
 import Link from "next/link";
 import {
   faAngleDown,
@@ -8,9 +8,11 @@ import {
   faCheck,
 } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Markdown from "markdown-to-jsx";
+import "highlight.js/styles/github-dark.css";
 import { classes } from "common/util";
 import { DocsApi } from "apis";
+import Markdown from "markdown-to-jsx";
+import Highlight from "react-highlight";
 
 export const getServerSideProps = async (context) => {
   return {
@@ -20,7 +22,6 @@ export const getServerSideProps = async (context) => {
   };
 };
 const Documentation = (props) => {
-  const [categoriesOpened, setcategoriesOpened] = useState({});
   const [topics, settopics] = useState([]);
   const [data, setdata] = useState("");
   const [active, setactive] = useState(false);
@@ -33,17 +34,7 @@ const Documentation = (props) => {
     DocsApi.getDocsdata(Topic, SubTopic).then(({ data }) => {
       setdata(data);
     });
-    toggleCategory(Topic, true);
   }, []);
-
-  const icons = [faAngleDown, faAngleRight];
-  const toggleCategory = (key, categoryOpened = !categoriesOpened[key]) => {
-    const categoriesOpened = {
-      ...categoriesOpened,
-      [key]: categoryOpened,
-    };
-    setcategoriesOpened(categoriesOpened);
-  };
 
   const handelData = (Topic, SubTopic) => {
     DocsApi.getDocsdata(Topic, SubTopic).then(({ data }) => {
@@ -51,13 +42,7 @@ const Documentation = (props) => {
     });
   };
 
-  const handelCopy = (children) => {
-    let str = "";
-    if (typeof children === "object" && children.length > 0) {
-      str = children[0];
-    } else {
-      str = children.props.children.trim();
-    }
+  const handelCopy = (str) => {
     setactive(true);
     navigator.clipboard
       .writeText(str)
@@ -69,15 +54,23 @@ const Documentation = (props) => {
       setactive(false);
     }, 1250);
   };
-
   const MyPre = ({ children, ...props }) => {
+    let code = "";
+    let ext = "";
+    if (typeof children === "object" && children.length > 0) {
+      code = children[0];
+    } else {
+      code = children.props.children.trim();
+      ext = children.props.className.split("-");
+      ext = ext[ext.length - 1];
+    }
     return (
-      <pre {...props}>
-        {children}
+      <div className={styles.sourceShell}>
+        <Highlight className={`language-${ext}`}>{code}</Highlight>
         <div
           className={classes(active ? styles.activeIcon : "", styles.copy_icon)}
           onClick={() => {
-            handelCopy(children);
+            handelCopy(code);
           }}
         >
           {!active ? (
@@ -104,7 +97,7 @@ const Documentation = (props) => {
             />
           )}
         </div>
-      </pre>
+      </div>
     );
   };
   return (
@@ -115,50 +108,12 @@ const Documentation = (props) => {
             <strong>Algorithm Visualizer</strong>
           </span>
         </div>
-        <aside className={styles.container__sidebar}>
-          <div>
-            {topics.map((Topic) => {
-              const key = Topic.key;
-              const categoryOpened = categoriesOpened[key];
-              return (
-                <ExpandableListItem
-                  className={classes(
-                    styles.ExpandableList,
-                    categoryOpened ? styles.opened : ""
-                  )}
-                  key={key}
-                  onClick={() => toggleCategory(key)}
-                  label={key}
-                  opened={categoryOpened}
-                  icons={icons}
-                >
-                  <div className={styles.list_container}>
-                    {Topic.subTopics.map((subtopic) => {
-                      return (
-                        <Link
-                          key={subtopic}
-                          href={`/documentation/${key}/${subtopic}`}
-                        >
-                          <a
-                            onClick={() => {
-                              handelData(key, subtopic);
-                            }}
-                          >
-                            <ListItem
-                              className={styles.ListItem}
-                              indent
-                              label={subtopic}
-                            />
-                          </a>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </ExpandableListItem>
-              );
-            })}
-          </div>
-        </aside>
+        <SideMenu
+          className={styles.container__sidebar}
+          topics={topics}
+          handelData={handelData}
+          params = {props.params}
+        />
         <div className={styles.container__main}>
           <Markdown
             className={styles.content}

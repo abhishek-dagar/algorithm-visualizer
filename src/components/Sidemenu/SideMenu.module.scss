@@ -1,0 +1,51 @@
+@import "~common/stylesheet/index";
+.container__sidebar {
+  border-right: 1px solid $theme-light;
+  .title {
+    visibility: hidden;
+  }
+  .MenuContainer {
+    .ExpandableList {
+      font-size: 1rem;
+      margin-left: 1rem;
+      .list_container {
+        margin-top: 0.7rem;
+        .ListItem {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .container__sidebar {
+    position: relative;
+    border-bottom: 1px solid $theme-light;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    padding: 0;
+    border-right: 0;
+    .title {
+      visibility: visible;
+      font-size: 2em;
+      margin: 10px 0;
+      text-align: center;
+    }
+    .MenuContainer {
+      display: flex;
+      margin: 12px 0;
+      .ExpandableList {
+        .list_container {
+          position: absolute;
+          background-color: $color-background;
+          visibility: hidden;
+        }
+      }
+      .opened {
+        .list_container {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

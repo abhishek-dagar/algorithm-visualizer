@@ -24,8 +24,8 @@ class App extends BaseComponent {
     super(props);
 
     this.state = {
-      workspaceVisibles: [true, true, true],
-      workspaceWeights: [0.2, 0.7, 1],
+      workspaceVisibles: [true, true],
+      workspaceWeights: [0.2, 2],
     };
     this.handleClickTitleBar = this.handleClickTitleBar.bind(this);
     this.handleChangeWorkspaceWeights =
@@ -115,31 +115,36 @@ class App extends BaseComponent {
     const [navigatorOpened] = workspaceVisibles;
 
     return (
-      <div className={styles.app}>
-        <Head>
-          <title>{title}</title>
-        </Head>
-        <Header
-          className={styles.header}
-          onClickTitleBar={this.handleClickTitleBar}
-          navigatorOpened={navigatorOpened}
-          // ignoreHistoryBlock={this.ignoreHistoryBlock}
-        />
-        <ResizableContainer
-          className={styles.workspace}
-          horizontal
-          weights={workspaceWeights}
-          visibles={workspaceVisibles}
-          onChangeWeights={this.handleChangeWorkspaceWeights}
-        >
-          <Navigator onClickTitleBar={this.handleClickTitleBar} />
-          <TabContainer className={styles.editor_tab_container}>
-            <VsCodeEditor />
-          </TabContainer>
-          <VisualizationViewer className={styles.visualization_viewer} />
-        </ResizableContainer>
-        <ToastContainer className={styles.toast_container} />
-      </div>
+      <>
+        <div className={styles.app}>
+          <Head>
+            <title>{title}</title>
+          </Head>
+          <Header
+            className={styles.header}
+            onClickTitleBar={this.handleClickTitleBar}
+            navigatorOpened={navigatorOpened}
+            // ignoreHistoryBlock={this.ignoreHistoryBlock}
+          />
+          <ResizableContainer
+            className={styles.workspace}
+            horizontal
+            weights={workspaceWeights}
+            visibles={workspaceVisibles}
+            onChangeWeights={this.handleChangeWorkspaceWeights}
+          >
+            <Navigator onClickTitleBar={this.handleClickTitleBar} />
+            <TabContainer className={styles.editor_tab_container}>
+              <VsCodeEditor />
+              <VisualizationViewer className={styles.visualization_viewer} />
+            </TabContainer>
+          </ResizableContainer>
+          <ToastContainer className={styles.toast_container} />
+        </div>
+        <div className={styles.unavailable}>
+          <h1>this page opens in Desktop</h1>
+        </div>
+      </>
     );
   }
 }

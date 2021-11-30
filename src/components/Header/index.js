@@ -13,8 +13,7 @@ import {
 } from "@fortawesome/fontawesome-free-solid";
 import { classes } from "common/util";
 import { actions } from "reducers";
-import { languages } from "common/config";
-import { BaseComponent, Button, Ellipsis, ListItem, Player } from "..";
+import { BaseComponent, Button, Ellipsis } from "..";
 import styles from "./Header.module.scss";
 
 class Header extends BaseComponent {
@@ -47,7 +46,6 @@ class Header extends BaseComponent {
     const { className, onClickTitleBar, navigatorOpened } = this.props;
     const { titles } = this.props.current;
     const { fullscreenIcon } = this.state;
-    const { ext } = this.props.env;
 
     return (
       <header className={classes(styles.header, className)}>
@@ -81,28 +79,6 @@ class Header extends BaseComponent {
               Fullscreen
             </Button>
           </div>
-        </div>
-        <div className={styles.row}>
-          <div className={styles.section}>
-            <Button icon={faSearch} primary onClick={onClickTitleBar}>
-              Search Algorithm
-            </Button>
-            <Button className={styles.btn_dropdown} icon={faStar}>
-              {languages.find((language) => language.ext === ext).name}
-              <div className={styles.dropdown}>
-                {languages.map((language) =>
-                  language.ext === ext ? null : (
-                    <ListItem
-                      key={language.ext}
-                      onClick={() => this.props.setExt(language.ext)}
-                      label={language.name}
-                    />
-                  )
-                )}
-              </div>
-            </Button>
-          </div>
-          <Player className={styles.section} />
         </div>
       </header>
     );

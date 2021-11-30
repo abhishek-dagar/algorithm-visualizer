@@ -1,138 +1,9 @@
 @import "~common/stylesheet/index";
-// .mainContainer {
-//   background-color: rgb(190, 189, 189);
-//   color: white;
-//   width: 100%;
-//   overflow-y: scroll;
-//   overflow-x: hidden;
-//   .container {
-//     width: 120%;
-//     height: 80%;
-//     position: relative;
-//     top: -10%;
-//     left: -10%;
-//     background-color: $theme-dark;
-//     display: flex;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     align-items: center;
-//     border-bottom-left-radius: 100%;
-//     border-bottom-right-radius: 100%;
-//     .title {
-//       // position: absolute;
-//       font-size: 7rem;
-//       top: 25%;
-//     }
-//     .textContainer {
-//       position: relative;
-//       bottom: -28%;
-//       h2 {
-//         margin-bottom: 5%;
-//       }
-//       a {
-//         background-color: white;
-//         color: black;
-//         font-size: 15px;
-//         font-weight: bold;
-//         border: 1px solid $theme-dark;
-//         padding: 12px 30px;
-//         border-radius: 20px;
-//       }
-//       a:hover {
-//         border: none;
-//         background-color: rgb(11, 122, 248);
-//         color: white;
-//         transition: 0.5s;
-//         box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
-//       }
-//     }
-//     .imageContainer {
-//       position: relative;
-//       bottom: -30%;
-//       box-shadow: 0 5px 0 rgba(0, 0, 0, 0.3);
-//       .image {
-//         animation: up-down 2s ease-in-out infinite alternate-reverse both;
-//       }
-//       @keyframes up-down {
-//         0% {
-//           transform: translateY(20px);
-//         }
-//         100% {
-//           transform: translateY(-20px);
-//         }
-//       }
-//     }
-//   }
-//   .QuoteContainer {
-//     color: $theme-dark;
-//     text-align: center;
-//     margin-top: 3%;
-//     display: flex;
-//     flex-direction: column;
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     align-items: center;
-//     .imageContainer {
-//       width: 50%;
-//       span {
-//         border-radius: 12px;
-//       }
-//     }
-//     h2 {
-//       width: 50%;
-//     }
-//   }
-// }
-// @media (max-width: 1198px) {
-//   .mainContainer {
-//     text-align: center;
-//     .container {
-//       .title {
-//         position: absolute;
-//         font-size: 5rem;
-//         top: 15%;
-//       }
-//     }
-//     .QuoteContainer {
-//       visibility: hidden;
-//     }
-//   }
-// }
-// @media (max-width: 475px) {
-//   .mainContainer {
-//     .container {
-//       border-bottom-left-radius: 20%;
-//       border-bottom-right-radius: 20%;
-//       .title {
-//         position: absolute;
-//         font-size: 4rem;
-//         top: 15%;
-//       }
-//       .textContainer {
-//         bottom: -50%;
-//         width: 320px;
-//         h2 {
-//           margin-bottom: 9%;
-//         }
-//       }
-//       .imageContainer {
-//         bottom: -40%;
-//         .image {
-//           width: 225px;
-//           height: 225px;
-//         }
-//       }
-//     }
-//     .QuoteContainer {
-//       visibility: hidden;
-//     }
-//   }
-// }
 .mainContainer {
-  background-color: $color-background;
+  background-color: $color-background-light;
   color: white;
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   display: grid;
   grid-template-columns: 1fr;
@@ -143,7 +14,6 @@
     grid-area: 1 / 1 / 3 / 2;
   }
   .container {
-    // background-color: $theme-dark;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -168,30 +38,19 @@
         font-weight: bold;
         padding: 20px 30px;
         border-radius: 30px;
-        background-color: rgb(11, 122, 248);
+        border: 1px solid #0b7af8;
       }
       a:hover {
         border: none;
         color: white;
-        transition: 0.5s;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        transition: 0.2s;
+        font-size: 17px;
+        background-color: #0b7af8;
+        border: 1px solid #0b7af8;
+        box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
       }
     }
-    // .imageContainer {
-      //   grid-area: 3 / 2 / 4 / 4;
-      //   .image {
-        //     animation: up-down 2s ease-in-out infinite alternate-reverse both;
-        //   }
-        //   @keyframes up-down {
-          //     0% {
-            //       transform: translateY(20px);
-            //     }
-            //     100% {
-              //       transform: translateY(-20px);
-              //     }
-              //   }
-              // }
-            }
+  }
   .QuoteContainer {
     text-align: center;
     margin-top: 3%;
@@ -203,46 +62,95 @@
     grid-area: 2 / 1 / 3 / 2;
     .imageContainer {
       width: 50%;
-      transition: .2s;
+      transition: 0.2s;
       span {
         border-radius: 12px;
-        box-shadow: 0 9px 22px rgba(0, 0, 0,.47);
+        box-shadow: 0 9px 22px rgba(0, 0, 0, 0.47);
       }
-      &:hover{
+      &:hover {
         width: 55%;
       }
     }
     h2 {
       width: 50%;
-      z-index: 2;
+      z-index: 1;
     }
   }
 }
-
-@media (max-width: 1400px) {
+@media (max-width: 1024px) {
   .mainContainer {
-    .container {
-      .title {
-        grid-area: 1 / 2 / 2 / 2;
-      }
-      .textContainer {
-        grid-area: 2 / 2 / 3 / 4;
-        text-align: center;
-      }
-      // .imageContainer {
-      //   grid-area: 3 / 2 / 4 / 4;
-      // }
-    }
-  }
-}
-@media (max-width: 1800px) {
-  .mainContainer {
-    grid-template-rows: 0.1fr 1fr;
-    .title {
-      grid-area: 1 / 2 / 2 / 2;
-    }
     .BgImage {
       grid-area: 2 / 1 / 3 / 2;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .mainContainer {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    .BgImage {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .container {
+      grid-template-rows: 0.5fr 0.5fr;
+      .textContainer {
+        a {
+          background-color: #0b7af8;
+        }
+      }
+    }
+    .QuoteContainer {
+      .imageContainer {
+        width: 65%;
+      }
+      h2 {
+        width: 80%;
+      }
+    }
+  }
+}
+@media (max-width: 425px) {
+  .mainContainer {
+    .container {
+      grid-template-columns: 0.2fr repeat(2, 1fr) 0.2fr;
+      .title {
+        font-size: 3rem;
+      }
+      .textContainer {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        h1 {
+          font-size: 1.5em;
+        }
+        h2 {
+          display: none;
+        }
+        a {
+          width: 46%;
+        }
+      }
+    }
+    .QuoteContainer {
+      h2 {
+        width: 100%;
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+@media (max-width: 320px) {
+  .mainContainer {
+    .container {
+      .textContainer {
+        a {
+          font-size: 12px;
+          width: 48%;
+        }
+      }
     }
   }
 }

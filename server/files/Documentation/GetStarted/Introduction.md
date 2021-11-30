@@ -6,7 +6,7 @@ Learning an algorithm gets much easier with visualizing it. Don't get what we me
 
 ### ScreenShot
 
-<img src="https://raw.githubusercontent.com/abhishek-dagar/algorithm-visualizer/main/branding/screenshot.png" alt="ScreenShot" style="width:80%;height80%"/>
+<img class="screenshot" src="https://raw.githubusercontent.com/abhishek-dagar/algorithm-visualizer/main/branding/screenshot.png" alt="ScreenShot" style="width:80%;height80%"/>
 
 ## Run Locally
 

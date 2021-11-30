@@ -1,7 +1,7 @@
 @import "~common/stylesheet/index";
 .navigation {
   width: 60px;
-  background-color: $theme-dark;
+  background-color: #161b22;
   .a {
     text-decoration: none;
     font-size: 12px;
@@ -28,20 +28,20 @@
       list-style: none;
       padding: 0;
       margin-top: 30%;
-        .active {
-          background-color: $theme-light;
-          border-top-left-radius: 12px;
-          border-bottom-left-radius: 12px;
+      .active {
+        background-color: $theme-light;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+      }
+      .navigationOption {
+        .activeBar {
+          width: 3px;
+          background-color: red;
         }
-        .navigationOption {
-          .activeBar {
-            width: 3px;
-            background-color: red;
-          }
-        }
+      }
       a {
         font-size: 25px;
-        .unactiveBar{
+        .unactiveBar {
           width: 3px;
           background-color: $theme-dark;
         }
@@ -52,13 +52,12 @@
           padding-bottom: 10%;
           .nav_caret {
             padding: 12px;
-            height: 80%;
-            width: 80%;
+            width: 45px;
+            height: 45px;
             border-radius: 12px;
           }
           .tooltip {
             visibility: hidden;
-            // background-color: $theme-dark;
             background-color: rgb(11, 122, 248);
             color: #fff;
             width: 130px;
@@ -94,6 +93,57 @@
           visibility: visible;
           padding: 10px;
           transition: all 0.4s ease;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    width: 100%;
+    height: 60px;
+    background-color: $color-background;
+    z-index: 2;
+    .logoContainer {
+      display: none;
+    }
+    .navigationButtons {
+      display: flex;
+      .navigationOptions {
+        display: flex;
+        margin-top: 0;
+        justify-content: space-around;
+        white-space: nowrap;
+        width: 100%;
+        .active {
+          border-radius: 0;
+        }
+        a {
+          .navigationOption {
+            padding: 0;
+            .activeBar {
+              width: 0;
+            }
+            .unactiveBar {
+              width: 0;
+            }
+            .nav_caret {
+              width: 50px;
+              height: 50px;
+              margin: 5px;
+            }
+            &:hover {
+              color: white;
+              transition: all 0.4s ease;
+              .nav_caret {
+                background-color: rgb(11, 122, 248);
+              }
+              .tooltip {
+                visibility: hidden;
+              }
+            }
+          }
         }
       }
     }
