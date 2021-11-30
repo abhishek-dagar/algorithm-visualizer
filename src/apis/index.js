@@ -68,10 +68,10 @@ const TracerApi = {
   json: ({ code }) => new Promise((resolve) => resolve(JSON.parse(code))),
   js: ({ code }, params, cancelToken) =>
     new Promise((resolve, reject) => {
-      const worker = new Worker(
-        new URL("http://localhost:4000/api/tracers/js")
-      );
-      // const worker = new Worker(new URL("https://algo-visualizer1.herokuapp.com/api/tracers/js"));
+      // const worker = new Worker(
+      //   new URL("http://localhost:4000/api/tracers/js")
+      // );
+      const worker = new Worker(new URL("https://algo-visualizer1.herokuapp.com/api/tracers/js"));
       if (cancelToken) {
         cancelToken.promise.then((cancel) => {
           worker.terminate();
