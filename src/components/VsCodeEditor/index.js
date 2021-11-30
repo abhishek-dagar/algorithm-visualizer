@@ -34,13 +34,7 @@ class VsCodeEditor extends Component {
     const options = {
       readOnly: true,
       wordWrap: "on",
-      foldingStrategy: "auto",
-      folding: {
-        markers: {
-          start: "^\\s*//\\s*#?region\\b",
-          end: "^\\s*//\\s*#?endregion\\b",
-        },
-      },
+      dragAndDrop:true,
     };
     return (
       <Editor

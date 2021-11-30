@@ -7,21 +7,22 @@
   flex-direction: column;
   align-items: stretch;
   overflow-y: auto;
-  background-color: $color-background;
+  background-color: $color-background-light;
 
+  // padding: 24px;
   .content {
-    padding: 24px;
-    font-size: $font-size-large;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
       sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    background-color: $color-background;
     border: 1px solid $theme-light;
     border-radius: 6px;
     word-wrap: break-word;
-    padding-right: 32px;
-    padding-left: 32px;
+    padding: 32px;
+    user-select: text;
     font-size: 16px;
     line-height: 1.5;
-    color: #c9d1d9;
+    margin: 25px;
+    margin-top: 35px;
     h1 {
       font-weight: 600px;
       font-size: 2em;
@@ -47,36 +48,54 @@
       margin-bottom: 16px;
     }
     pre {
-      font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-        Liberation Mono, monospace;
       padding: 16px;
       overflow: auto;
       font-size: 85%;
       line-height: 1.45;
-      background-color: #161b22;
+      background-color: $color-background-light;
       border-radius: 6px;
       position: relative;
-      cursor: text;
+      margin: 0;
+    }
+    code {
+      background-color: $color-background-light;
+      padding: 0;
+    }
+    .sourceShell {
+      font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+        Liberation Mono, monospace;
+      margin-bottom: 16px;
+      overflow: auto !important;
+      position: relative;
       .activeIcon {
-        border: 1px solid #07fd87;
+        border: 1px solid #07fd1c46;
       }
       .copy_icon {
+        transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+        transition-property: color, background-color, border-color;
+        background-color: $color-background-light;
+        display: inline-block;
         position: absolute;
         border-radius: 25%;
-        color: #616161;
-        width: 33px;
-        display: inline;
-        opacity: 0;
-        right: 10px;
-        top: 10px;
-        border: 1px solid;
+        border: 1px solid #f0f6fc1a;
         padding: 6px 9px;
+        font-size: 14px;
+        vertical-align: middle;
+        user-select: none;
+        color: #616161;
+        cursor: pointer;
+        width: 33px;
+        opacity: 0;
+        right: 0;
+        top: 0;
+        margin: 8px;
         .TickIcon {
-          font-size: 0.8em;
           color: #00ff84;
         }
         &:hover {
-          border-color: white;
+          border-color: #8b949e;
+          background-color: #30363d;
+          transition: 0.1s;
         }
       }
       &:hover {
@@ -89,10 +108,14 @@
       max-width: 85%;
       display: block;
     }
+    img[class="screenshot"] {
+      max-width: 80%;
+      width: 80%;
+      display: block;
+    }
     table {
       border-collapse: collapse;
       width: max-content;
-      user-select: text;
       display: block;
       max-width: 100%;
       overflow: auto;
@@ -108,7 +131,7 @@
           padding: 6px 13px;
         }
         td[class="code"] {
-          background-color: #161b22;
+          background-color: $color-background-light;
         }
       }
     }

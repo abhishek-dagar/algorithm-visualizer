@@ -31,18 +31,18 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Algorithm Visualizer</title>
       </Head>
-      {height && height <= 912 && width && width <= 454 ? (
+      {/* {height && height <= 912 && width && width <= 454 ? (
         <h1>This site is not available for phone</h1>
-      ) : (
-        <Provider store={store}>
-          <div className={styles.mainContainer}>
-            <Navbar />
-            <div className={styles.ComponentContainer}>
-              <Component {...pageProps} />
-            </div>
+      ) : ( */}
+      <Provider store={store}>
+        <div className={styles.mainContainer}>
+          <Navbar />
+          <div className={styles.ComponentContainer}>
+            <Component {...pageProps} />
           </div>
-        </Provider>
-      )}
+        </div>
+      </Provider>
+      {/* )} */}
     </>
   );
 }

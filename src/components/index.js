@@ -13,4 +13,5 @@ export { default as TabContainer } from './TabContainer';
 export { default as ToastContainer } from './ToastContainer';
 export { default as VisualizationViewer } from './VisualizationViewer';
 export { default as VsCodeEditor } from './VsCodeEditor';
-export {default as Card} from "./Cards/Card"
+export {default as Card} from "./Cards/Card";
+export {default as SideMenu} from "./Sidemenu";

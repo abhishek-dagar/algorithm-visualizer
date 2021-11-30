@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import HomeImg from "assets/homePage-removebg-preview.png";
 import SS from "assets/screenshot.png";
 import styles from "styles/Home.module.scss";
 import { bgImg } from "assets";
@@ -13,7 +12,9 @@ export default class Home extends Component {
       <>
         <div className={styles.mainContainer}>
           <div className={styles.BgImage}>
-            <Image className={styles.image} src={bgImg} alt="" />
+            <div className={styles.imgContainer}>
+              <Image className={styles.image} src={bgImg} alt="" />
+            </div>
           </div>
           <div className={styles.container}>
             <h1 className={styles.title}>
@@ -24,13 +25,10 @@ export default class Home extends Component {
                 Learn Algorithms with <strong>Algorithm Visualizer</strong>
               </h1>
               <h2>We are Team of Developers</h2>
-              <Link href="/Algo-visual">
+              <Link href="/documentation/GetStarted/Introduction">
                 <a>Get Started</a>
               </Link>
             </div>
-            {/* <div className={styles.imageContainer}>
-            <Image className={styles.image} src={HomeImg} alt="Home" />
-          </div> */}
           </div>
           <div className={styles.QuoteContainer}>
             <div className={styles.imageContainer}>

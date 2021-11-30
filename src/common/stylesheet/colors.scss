@@ -2,8 +2,8 @@ $theme-dark: #242424;
 $theme-normal: #393939;
 $theme-light: #505050;
 $color-font: #bbbbbb;
-$color-shadow: rgba(#000000, .2);
-$color-overlay: rgba(#ffffff, .1);
+$color-shadow: rgba(#000000, 0.2);
+$color-overlay: rgba(#ffffff, 0.1);
 $color-alert: #f3bd58;
 $color-selected: #2962ff;
 $color-patched: #c51162;
@@ -11,6 +11,7 @@ $color-highlight: #29d;
 $color-active: #00e676;
 $color-true: #00a67e;
 $color-background: #0d1117;
+$color-background-light: #161b22;
 
 :export {
   themeDark: $theme-dark;
@@ -26,4 +27,5 @@ $color-background: #0d1117;
   colorHighlight: $color-highlight;
   colorActive: $color-active;
   color-background: $color-background;
+  $color-background-light: $color-background-light;
 }

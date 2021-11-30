@@ -1,6 +1,6 @@
 # Example
 
-```bash
+```js
 // import visualization libraries {
 const { Array2DTracer, Layout, LogTracer, Tracer, VerticalLayout } = require('algorithm-visualizer');
 // }
