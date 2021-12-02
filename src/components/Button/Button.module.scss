@@ -41,8 +41,6 @@
 
   &.primary {
     &:hover {
-      background-color: $color-shadow;
-
       &:active {
         box-shadow: 0px 0px 10px 3px #1a1a1a inset;
       }
@@ -63,7 +61,7 @@
     background-color: $color-shadow;
 
     &:hover {
-      color: rgba($color-font, .8);
+      color: rgba($color-font, 0.8);
     }
   }
 

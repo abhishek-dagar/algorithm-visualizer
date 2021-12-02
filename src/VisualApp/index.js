@@ -36,6 +36,12 @@ class App extends BaseComponent {
     const { params } = this.props.match;
     this.loadAlgorithm(params);
 
+    if (typeof window !== undefined) {
+      if (window.innerWidth <= 768) {
+        this.setState({ workspaceWeights: [0.2, 1] });
+      }
+    }
+
     AlgorithmApi.getCategories()
       .then(({ categories }) => {
         this.props.setCategories(categories);
@@ -86,9 +92,9 @@ class App extends BaseComponent {
     const { ext } = this.props.env;
     const { files } = this.props.current;
     const editingFile =
-      files.find((file) => extension(file.name) === "json") ||
-      files.find((file) => extension(file.name) === ext) ||
-      files.find((file) => exts.includes(extension(file.name))) ||
+      files.find((file) => extension(file.name) === "md") ||
+      // files.find((file) => extension(file.name) === ext) ||
+      // files.find((file) => exts.includes(extension(file.name))) ||
       files[files.length - 1];
     this.props.setEditingFile(editingFile);
   }

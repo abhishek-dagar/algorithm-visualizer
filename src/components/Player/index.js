@@ -11,7 +11,6 @@ import { classes, extension } from "common/util";
 import { actions } from "reducers";
 import { BaseComponent, Button, ProgressBar } from "..";
 import styles from "./Player.module.scss";
-// import { AlgorithmTracer } from "AlgorithmTracer/AlgortihmTracer";
 import { TracerApi } from "apis";
 import axios from "axios";
 
@@ -183,8 +182,6 @@ class Player extends BaseComponent {
         <Button
           icon={faRedo}
           primary
-          // disabled={building}
-          // inProgress={building}
           onClick={this.refresh}
         >
           Refresh

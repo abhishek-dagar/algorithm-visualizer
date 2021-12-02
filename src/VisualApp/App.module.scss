@@ -9,17 +9,11 @@
   background-color: $color-background;
   visibility: visible;
 
-  .header {
-  }
-
   .workspace {
     flex: 1;
 
     .visualization_viewer {
       background-color: $theme-dark;
-    }
-
-    .editor_tab_container {
     }
   }
 
