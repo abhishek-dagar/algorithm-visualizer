@@ -104,32 +104,34 @@ const Documentation = (props) => {
     <>
       <div className={styles.container}>
         <div className={styles.Banner}>
-          <span className={styles.title}>
-            <strong>Algorithm Visualizer</strong>
-          </span>
+          <h1 className={styles.title}>
+            <strong>Algorithm Visualizer Documentation</strong>
+          </h1>
         </div>
-        <SideMenu
-          className={styles.container__sidebar}
-          topics={topics}
-          handelData={handelData}
-          params = {props.params}
-        />
-        <div className={styles.container__main}>
-          <Markdown
-            className={styles.content}
-            options={{
-              overrides: {
-                pre: {
-                  component: MyPre,
-                  props: {
-                    className: "foo",
+        <div className={styles.docsContainer}>
+          <SideMenu
+            className={styles.container__sidebar}
+            topics={topics}
+            handelData={handelData}
+            params={props.params}
+          />
+          <div className={styles.container__main}>
+            <Markdown
+              className={styles.content}
+              options={{
+                overrides: {
+                  pre: {
+                    component: MyPre,
+                    props: {
+                      className: "foo",
+                    },
                   },
                 },
-              },
-            }}
-          >
-            {data}
-          </Markdown>
+              }}
+            >
+              {data}
+            </Markdown>
+          </div>
         </div>
       </div>
     </>

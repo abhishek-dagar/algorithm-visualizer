@@ -51,8 +51,8 @@ export default function SideMenu(props) {
         className={classes(className, styles.container__sidebar)}
         ref={customref}
       >
-        <div className={styles.title}>Algorithm Visualizer</div>
-        <Divider/>
+        <div className={styles.title}>Algorithm Visualizer Documentation</div>
+        <Divider className={styles.divider}/>
         <div className={styles.MenuContainer}>
           {topics.map((Topic) => {
             const key = Topic.key;
@@ -67,9 +67,9 @@ export default function SideMenu(props) {
                   toggleCategory(key);
                 }}
               >
-                <Ellipsis>{key}</Ellipsis>
+                <Ellipsis className={styles.mainKey}>{key}</Ellipsis>
                 <FontAwesomeIcon
-                  className={classes(styles.TickIcon)}
+                  className={classes(styles.Opener)}
                   fixedWidth
                   icon={categoriesOpened[key] ? faAngleDown : faAngleRight}
                 />

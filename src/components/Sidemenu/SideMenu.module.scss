@@ -4,10 +4,24 @@
   .title {
     visibility: hidden;
   }
+  .divider {
+    display: none;
+  }
   .MenuContainer {
+    position: sticky;
+    top: 50px;
     .ExpandableList {
       font-size: 1rem;
-      margin-left: 1rem;
+      padding-left: 1rem;
+      margin-top: 16%;
+      .mainKey {
+        border-bottom: 1px solid;
+        display: block;
+        font-weight: bold;
+      }
+      .Opener {
+        display: none;
+      }
       .list_container {
         margin-top: 0.7rem;
         .ListItem {
@@ -31,10 +45,21 @@
       margin: 10px 0;
       text-align: center;
     }
+    .divider {
+      display: block;
+    }
     .MenuContainer {
       display: flex;
       margin: 12px 0;
       .ExpandableList {
+        margin-top: 0;
+        .mainKey {
+          border-bottom: 0px solid;
+          display: inline;
+        }
+        .Opener {
+          display: inline;
+        }
         .list_container {
           position: absolute;
           background-color: $color-background;
