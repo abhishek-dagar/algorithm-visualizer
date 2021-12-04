@@ -1,82 +1,131 @@
 @import "~common/stylesheet/index";
 .container {
-  position: relative;
-  bottom: -30%;
-  width: 350px;
-  background-color: white;
-  border-radius: 5%;
-  margin: 2%;
+  border-radius: 20px;
+  width: 35%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 5px 5px 5px #00000033,
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
   .card {
-    text-align: center;
+    width: 96%;
+    height: 92%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 20px;
+    background: linear-gradient(
+      90deg,
+      rgba(57, 68, 83, 1) 0%,
+      rgba(13, 17, 23, 1) 100%
+    );
+    transition: 0.5s;
+    padding: 5%;
+    &:hover {
+      transform: translateY(-50px);
+      box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+    }
     .coverPhoto {
-      background-color: $theme-light;
-      height: 170px;
-      border-top-right-radius: 5%;
-      border-top-left-radius: 5%;
-      .profile {
-        position: relative;
-        top: 5%;
-        left: 25%;
-        height: 150px;
-        width: 150px;
-        font-size: 12px;
-        background-color: red;
-        border-radius: 50%;
-        border: 5px solid white;
+      background-color: grey;
+      height: auto;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 50px;
+    }
+    .details {
+      width: 60%;
+      height: 100%;
+      margin: 0 20px 0 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .profileName {
+        font-size: 25px;
+        font-weight: 800;
+        color: #0b7af8;
+      }
+      .about {
+        font-size: 15px;
+        font-weight: 200;
+        color: white;
       }
     }
-    .profileName {
-      font-size: 25px;
-      font-weight: bold;
-      color: $theme-dark;
-      margin-top: 10%;
-    }
-    .about {
-      color: $theme-dark;
-      margin: 10% 0 0 10%;
-      width: 80%;
-    }
     .socialButton {
-      margin: 30% 0 5% 0;
+      width: 70%;
+      display: flex;
+      justify-content: space-around;
+      color: #0b7af8;
       a {
-        padding-left: 3%;
         .nav_caret {
-          height: 30px;
-          width: 30px;
+          font-size: 20px;
         }
       }
     }
   }
 }
-@media (max-width: 475px) {
+@media (max-width: 1252px) {
   .container {
-    width: 250px;
+    width: 45%;
+  }
+}
+@media (max-width: 994px) {
+  .container {
+    width: 75%;
+    margin-top: 5%;
     .card {
+      .details {
+        justify-content: space-evenly;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    width: 45%;
+    margin-top: 5%;
+    height: 45%;
+    .card {
+      flex-direction: column;
+      align-items: center;
+      &:hover {
+        transform: none;
+      }
       .coverPhoto {
-        height: 100px;
-        .profile {
-          height: 90px;
-          width: 90px;
-        }
+        width: 140px;
+        height: 180px;
       }
-      .profileName {
-        margin-top: 3%;
-      }
-      .about {
-        color: $theme-dark;
-        margin: 3% 0 0 10%;
-        width: 80%;
-      }
-      .socialButton {
-        margin: 10% 0 5% 0;
-        a {
-          padding-left: 3%;
-          .nav_caret {
-            height: 30px;
-            width: 30px;
-          }
+      .details {
+        text-align: center;
+        justify-content: space-around;
+        margin: 0;
+        width: 75%;
+        .socialButton {
+          width: 100%;
         }
       }
     }
+  }
+}
+@media (max-width: 425px) {
+  .container {
+    width: 75%;
+    .card {
+      .details {
+        .socialButton {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 320px) {
+  .container {
+    width: 85%;
   }
 }

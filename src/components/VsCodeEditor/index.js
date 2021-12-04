@@ -19,6 +19,9 @@ class VsCodeEditor extends Component {
   handleEditorValidation(markers) {
     // markers.forEach((marker) => console.log("onValidate:", marker.message));
   }
+  handleEditorChange(value, event) {
+    console.log("here is the current model value:", value);
+  }
   render() {
     const { editingFile } = this.props.current;
     if (!editingFile) return null;
@@ -34,7 +37,7 @@ class VsCodeEditor extends Component {
     const options = {
       readOnly: true,
       wordWrap: "on",
-      dragAndDrop:true,
+      dragAndDrop: true,
     };
     return (
       <Editor
@@ -44,6 +47,9 @@ class VsCodeEditor extends Component {
         value={editingFile.content}
         automaticLayout={true}
         options={options}
+        onChange={(code) => {
+          this.props.modifyFile(editingFile, code);
+        }}
       />
     );
   }

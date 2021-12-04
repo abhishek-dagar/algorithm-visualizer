@@ -8,6 +8,7 @@ import {
   faLinkedinIn,
   faInstagram,
 } from "@fortawesome/fontawesome-free-brands";
+import { faUser } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Card = (props) => {
   const { name, description, photo } = props.info;
@@ -16,48 +17,55 @@ const Card = (props) => {
       <div className={styles.card}>
         <div className={styles.coverPhoto}>
           <div className={styles.profile}>
-            <Image src={photo} alt="Abhishek"></Image>
+            <FontAwesomeIcon
+              className={styles.nav_caret}
+              fixedWidth
+              icon={faUser}
+            />
+            {/* <Image src={photo} alt="Abhishek"></Image> */}
           </div>
         </div>
-        <div className={styles.profileName}>{name}</div>
-        <p className={styles.about}>{description}</p>
-        <div className={styles.socialButton}>
-          <Link href={"/about"}>
-            <a>
-              <FontAwesomeIcon
-                className={styles.nav_caret}
-                fixedWidth
-                icon={faFacebook}
-              />
-            </a>
-          </Link>
-          <Link href={"/about"}>
-            <a>
-              <FontAwesomeIcon
-                className={styles.nav_caret}
-                fixedWidth
-                icon={faGithub}
-              />
-            </a>
-          </Link>
-          <Link href={"/about"}>
-            <a>
-              <FontAwesomeIcon
-                className={styles.nav_caret}
-                fixedWidth
-                icon={faLinkedinIn}
-              />
-            </a>
-          </Link>
-          <Link href={"/home"}>
-            <a>
-              <FontAwesomeIcon
-                className={styles.nav_caret}
-                fixedWidth
-                icon={faInstagram}
-              />
-            </a>
-          </Link>
+        <div className={styles.details}>
+          <div className={styles.profileName}>{name}</div>
+          <p className={styles.about}>{description}</p>
+          <div className={styles.socialButton}>
+            <Link href={"/about"}>
+              <a>
+                <FontAwesomeIcon
+                  className={styles.nav_caret}
+                  fixedWidth
+                  icon={faFacebook}
+                />
+              </a>
+            </Link>
+            <Link href={"/about"}>
+              <a>
+                <FontAwesomeIcon
+                  className={styles.nav_caret}
+                  fixedWidth
+                  icon={faGithub}
+                />
+              </a>
+            </Link>
+            <Link href={"/about"}>
+              <a>
+                <FontAwesomeIcon
+                  className={styles.nav_caret}
+                  fixedWidth
+                  icon={faLinkedinIn}
+                />
+              </a>
+            </Link>
+            <Link href={"/about"}>
+              <a>
+                <FontAwesomeIcon
+                  className={styles.nav_caret}
+                  fixedWidth
+                  icon={faInstagram}
+                />
+              </a>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

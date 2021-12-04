@@ -2,43 +2,73 @@
 .mainContainer {
   background-color: rgb(190, 189, 189);
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
+  background-image: url("../assets/backgroundpattern.svg");
+  .title {
+    font-size: 5rem;
+    text-align: center;
+    color: #ffffff;
+  }
+  .details {
+    margin: 4% 26%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: white;
+  }
   .backGround {
-    background-color: $theme-dark;
-    height: 80%;
-    width: 120%;
-    position: relative;
-    top: -10%;
-    left: -10%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    border-bottom-left-radius: 100%;
-    border-bottom-right-radius: 100%;
-  }
-  .title{
-    position: absolute;
-    top: 15%;
-    font-size: 7rem;
+    height: 40%;
   }
 }
-@media (max-width: 1198px) {
- .mainContainer{
-   .backGround{
-    border-bottom-left-radius: 20%;
-    border-bottom-right-radius: 20%;
-   }
-   .title{
-     top: 15%;
-     font-size: 5rem;
-   }
- } 
+@media (max-width: 1290px) {
+  .mainContainer {
+    .backGround{
+      height: 45%;
+    }
+  }
 }
-@media (max-width: 454px) {
- .mainContainer{
-   .title{
-     font-size: 2rem;
-   }
- } 
+@media (max-width: 994px) {
+  .mainContainer {
+    .backGround{
+      flex-direction: column;
+      height: 75%;
+      margin-bottom: 30px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .mainContainer {
+    .title {
+      font-size: 4rem;
+      margin-bottom: 0;
+      margin-top: 5rem;
+    }
+    .backGround{
+      height: 100%;
+    }
+    .details {
+      margin: 5%;
+      font-size: 1.2rem;
+    }
+  }
+}
+@media (max-width: 425px) {
+  .mainContainer {
+    .title {
+      font-size: 2rem;
+    }
+    .details {
+      margin: 5%;
+      font-size: 1.2em;
+    }
+  }
+}
+@media (max-width: 320px) {
+  .mainContainer {
+    .title {
+      font-size: 2rem;
+    }
+  }
 }

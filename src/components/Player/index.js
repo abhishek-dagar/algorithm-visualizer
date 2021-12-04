@@ -80,26 +80,28 @@ class Player extends BaseComponent {
     this.setState({ editingFile: file });
     this.setState({ building: true });
     const ext = extension(file.name);
-    if (this.tracerApiSource) this.tracerApiSource.cancel();
-    this.tracerApiSource = axios.CancelToken.source();
-    if (ext in TracerApi) {
-      TracerApi[ext](
-        { code: file.content, name: file.name },
-        undefined,
-        this.tracerApiSource.token
-      )
-        .then((commands) => {
-          this.tracerApiSource = null;
-          this.reset(commands);
-          this.setState({ building: false });
-        })
-        .catch((error) => {
-          if (axios.isCancel(error)) return;
-          this.tracerApiSource = null;
-          this.setState({ building: false });
-          this.handleError(error);
-        });
-    }
+    setTimeout(() => {
+      if (this.tracerApiSource) this.tracerApiSource.cancel();
+      this.tracerApiSource = axios.CancelToken.source();
+      if (ext in TracerApi) {
+        TracerApi[ext](
+          { code: file.content, name: file.name },
+          undefined,
+          this.tracerApiSource.token
+        )
+          .then((commands) => {
+            this.tracerApiSource = null;
+            this.reset(commands);
+            this.setState({ building: false });
+          })
+          .catch((error) => {
+            if (axios.isCancel(error)) return;
+            this.tracerApiSource = null;
+            this.setState({ building: false });
+            this.handleError(error);
+          });
+      }
+    }, ext==="md"?0:1000);
   }
 
   isValidCursor(cursor) {
@@ -119,7 +121,7 @@ class Player extends BaseComponent {
     this.pause();
     if (this.next() || (wrap && this.props.setCursor(1))) {
       const interval = 4000 / Math.pow(Math.E, this.state.speed);
-      if (typeof window!=undefined) {
+      if (typeof window != undefined) {
         this.timer = window.setTimeout(() => this.resume(), interval);
       }
       this.setState({ playing: true });
@@ -128,7 +130,7 @@ class Player extends BaseComponent {
 
   pause() {
     if (this.timer) {
-      if (typeof window!=undefined) {
+      if (typeof window != undefined) {
         window.clearTimeout(this.timer);
       }
       this.timer = undefined;
@@ -179,11 +181,7 @@ class Player extends BaseComponent {
         >
           {building ? "Building" : "Build"}
         </Button>
-        <Button
-          icon={faRedo}
-          primary
-          onClick={this.refresh}
-        >
+        <Button icon={faRedo} primary onClick={this.refresh}>
           Refresh
         </Button>
         {playing ? (

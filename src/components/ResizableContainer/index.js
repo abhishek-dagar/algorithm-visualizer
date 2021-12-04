@@ -63,6 +63,7 @@ class ResizableContainer extends React.Component {
             className={classes(styles.wrapper)}
             style={{
               flexGrow: weights[i] / totalWeight,
+              transition: "0.1s",
             }}
           >
             {child}

@@ -5,7 +5,7 @@ const { listFiles } = require("../utils/hierarchy");
 class Topics {
   constructor(path, name) {
     this.path = path;
-    this.subTopics = ["Introduction", "Example"];
+    this.subTopics = ["Example", "Introduction"];
     this.subTopicsContent = [];
     this.key = name;
     this.refresh();

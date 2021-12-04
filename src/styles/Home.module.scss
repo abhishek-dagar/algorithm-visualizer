@@ -65,7 +65,7 @@
       transition: 0.2s;
       span {
         border-radius: 12px;
-        box-shadow: 0 9px 22px rgba(0, 0, 0, 0.47);
+        box-shadow: 0px 0px 22px 5px rgba(0, 0, 0, 0.9);
       }
       &:hover {
         width: 55%;
@@ -142,13 +142,34 @@
     }
   }
 }
-@media (max-width: 320px) {
+@media (max-width: 375px) {
+  .mainContainer {
+    .container {
+      .textContainer {
+        a {
+          font-size: 16px;
+          width: 48%;
+          &:hover {
+            transition: none;
+            font-size: 16px;
+            border: 0;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 375px) {
   .mainContainer {
     .container {
       .textContainer {
         a {
           font-size: 12px;
           width: 48%;
+          &:hover {
+            font-size: 12px;
+          }
         }
       }
     }

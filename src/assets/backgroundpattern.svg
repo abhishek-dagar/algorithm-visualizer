@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200px" height="490px" viewBox="0 0 1200 490">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard 4 Copy 8</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Artboard-4-Copy-8" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#222933" x="0" y="0" width="1200" height="490"></rect>
+        <g id="Group-2" transform="translate(-70.000000, -12.000000)">
+            <polyline id="Stroke-5-Copy-2" stroke="#47DFAA" stroke-width="3.3" style="mix-blend-mode: screen;" stroke-linecap="round" stroke-linejoin="round" points="413 145 460 172.500361 413 200"></polyline>
+            <path d="M758.202796,270 C724.869462,241.906062 724.869462,190.094802 758.202796,162" id="Stroke-7-Copy-4" stroke="#40B7FF" stroke-width="3.3" opacity="0.75" style="mix-blend-mode: screen;" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M245,194 C211.666667,165.906062 211.666667,114.094802 245,86" id="Stroke-7-Copy-5" stroke="#40B7FF" stroke-width="3.3" style="mix-blend-mode: screen;" stroke-linecap="round" stroke-linejoin="round" transform="translate(232.500000, 140.000000) rotate(-180.000000) translate(-232.500000, -140.000000) "></path>
+            <path d="M513,304 L585,304" id="Stroke-9-Copy" stroke="#A1D3E5" stroke-width="3.3" opacity="0.75" style="mix-blend-mode: screen;" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M932,0 L874,93" id="Stroke-15-Copy" stroke="#47DFAA" stroke-width="9.9" opacity="0.75" style="mix-blend-mode: screen;" stroke-linejoin="round"></path>
+            <g id="Group-3" transform="translate(521.000000, 46.000000)" stroke="#40B7FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.3">
+                <path d="M56,24 L0,24" id="Stroke-21-Copy" style="mix-blend-mode: screen;"></path>
+                <path d="M42,47 L12,0" id="Stroke-23-Copy" style="mix-blend-mode: screen;"></path>
+                <path d="M12,47 L42,0" id="Stroke-25-Copy" style="mix-blend-mode: screen;"></path>
+            </g>
+            <path d="M284,314 L326,314" id="Stroke-27-Copy" stroke="#A1D3E5" stroke-width="9.9" style="mix-blend-mode: screen;"></path>
+            <path d="M284,335 L326,335" id="Stroke-29-Copy" stroke="#A1D3E5" stroke-width="9.9" style="mix-blend-mode: screen;"></path>
+            <polyline id="Stroke-3-Copy" stroke="#47DFAA" stroke-width="9.9" style="mix-blend-mode: screen;" stroke-linejoin="bevel" points="173 442 139 421.999737 173 402"></polyline>
+            <polyline id="Stroke-5-Copy-3" stroke="#A1D3E5" stroke-width="3.3" style="mix-blend-mode: screen;" stroke-linecap="round" stroke-linejoin="round" transform="translate(1043.000000, 220.500000) rotate(-180.000000) translate(-1043.000000, -220.500000) " points="1020 194 1066 220.500348 1020 247"></polyline>
+            <path d="M1098,550 C1064.66667,521.906062 1064.66667,470.094802 1098,442" id="Stroke-7-Copy-3" stroke="#A1D3E5" stroke-width="3.3" style="mix-blend-mode: screen;" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M1202,335.25 L1318.6497,335.25" id="Stroke-9-Copy-3" stroke="#40B7FF" stroke-width="9.9" opacity="0.55" style="mix-blend-mode: screen;"></path>
+            <path d="M934,322 L934,383" id="Stroke-17-Copy-2" stroke="#47DFAA" stroke-width="3.3" style="mix-blend-mode: screen;" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M964,353 L903,353" id="Stroke-19-Copy-2" stroke="#47DFAA" stroke-width="3.3" style="mix-blend-mode: screen;" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M1166,81 L1166,123" id="Stroke-17-Copy-4" stroke="#47DFAA" stroke-width="9.9" style="mix-blend-mode: screen;" transform="translate(1166.500000, 102.000000) rotate(-315.000000) translate(-1166.500000, -102.000000) "></path>
+            <path d="M1187,102 L1145,102" id="Stroke-19-Copy-4" stroke="#47DFAA" stroke-width="9.9" style="mix-blend-mode: screen;" transform="translate(1166.000000, 102.500000) rotate(-315.000000) translate(-1166.000000, -102.500000) "></path>
+            <g id="Group" opacity="0.55" style="mix-blend-mode: screen;" transform="translate(537.000000, 391.000000)" stroke="#40B7FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.3">
+                <path d="M30.1494253,0 L30.1494253,61" id="Stroke-17-Copy-5"></path>
+                <path d="M61,30.8505747 L0,30.8505747" id="Stroke-19-Copy-5"></path>
+            </g>
+            <path d="M909,133.5 C909,136.537251 906.537251,139 903.5,139 C900.462749,139 898,136.537251 898,133.5 C898,130.461913 900.462749,128 903.5,128 C906.537251,128 909,130.461913 909,133.5" id="Fill-31-Copy" style="mix-blend-mode: screen;"></path>
+            <path d="M909,173.5 C909,176.537251 906.537251,179 903.5,179 C900.462749,179 898,176.537251 898,173.5 C898,170.462749 900.462749,168 903.5,168 C906.537251,168 909,170.462749 909,173.5" id="Fill-33-Copy" style="mix-blend-mode: screen;"></path>
+        </g>
+    </g>
+</svg> 

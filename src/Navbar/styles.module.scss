@@ -1,20 +1,18 @@
 @import "~common/stylesheet/index";
 .navigation {
-  width: 60px;
+  width: 75px;
+  min-width: 75px;
   background-color: #161b22;
-  .a {
-    text-decoration: none;
-    font-size: 12px;
-  }
-  .a:hover {
-    color: #bbb;
-  }
+  border-right: 7px solid #0b7af8;
+  transition: width 0.5s;
+  border-left: 10px solid #161b22;
+  overflow-x: hidden;
   .logoContainer {
     .Icon {
       .logo {
         width: 40px;
         height: 40px;
-        margin: 25% 15%;
+        margin: 20px 6px;
         .image {
           max-width: 100%;
           max-height: 100%;
@@ -23,15 +21,12 @@
     }
   }
   .navigationButtons {
-    text-align: center;
+    height: 80%;
     .navigationOptions {
       list-style: none;
       padding: 0;
-      margin-top: 30%;
-      .active {
-        background-color: $theme-light;
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
+      .activeA {
+        background-color: #0b7af8;
       }
       .navigationOption {
         .activeBar {
@@ -41,58 +36,34 @@
       }
       a {
         font-size: 25px;
+        display: flex;
+        align-items: center;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        position: relative;
+        text-decoration: none;
+        margin-left: 5px;
+        padding: 7px 0 7px 0;
+        margin-top: 5px;
         .unactiveBar {
           width: 3px;
           background-color: $theme-dark;
         }
         .navigationOption {
-          padding-top: 10%;
-          display: flex;
-          flex-direction: row;
-          padding-bottom: 10%;
           .nav_caret {
             padding: 12px;
             width: 45px;
             height: 45px;
             border-radius: 12px;
           }
-          .tooltip {
-            visibility: hidden;
-            background-color: rgb(11, 122, 248);
-            color: #fff;
-            width: 130px;
-            text-align: center;
-            padding: 5px 0;
-            border-radius: 6px;
-            position: absolute;
-            z-index: 1;
-            left: 3.2%;
-            font-size: 15px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-            transition: 0;
-          }
-          .tooltip::after {
-            content: " ";
-            position: absolute;
-            top: 50%;
-            right: 100%;
-            margin-top: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: transparent rgb(11, 122, 248) transparent transparent;
-          }
-        }
-      }
-      .navigationOption:hover {
-        color: white;
-        transition: all 0.4s ease;
-        .nav_caret {
-          background-color: rgb(11, 122, 248);
         }
         .tooltip {
-          visibility: visible;
-          padding: 10px;
-          transition: all 0.4s ease;
+          width: 100%;
+          padding-left: 20px;
+          background-color: transparent;
+        }
+        &:hover {
+          color: white;
         }
       }
     }
@@ -102,11 +73,15 @@
 @media (max-width: 768px) {
   .navigation {
     width: 100%;
-    height: 50px;
-    border-top: 1px solid $theme-light;
+    height: 70px;
     background-color: $color-background;
+    border: 0;
     z-index: 2;
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.4);
+    border-right: 0;
+    overflow-x: visible;
+    // &:hover {
+    //   width: 100%;
+    // }
     .logoContainer {
       display: none;
     }
@@ -118,28 +93,38 @@
         justify-content: space-around;
         white-space: nowrap;
         width: 100%;
+        .activeA {
+          background-color: transparent;
+          border-radius: 0;
+          .navigationOption {
+            .nav_caret {
+              transform: translateY(-35px);
+              transition: 0.4s;
+            }
+          }
+        }
         .active {
           border-radius: 0;
-          background-color: $theme-light;
-          border-radius: 50%;
+          background-color: transparent;
+          transform: translateY(-35px);
         }
         a {
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-direction: column;
+          position: relative;
+          width: 100%;
+          text-align: center;
+          font-weight: 500;
+          transition: 0.5s;
           .navigationOption {
             padding: 0;
-            height: 80%;
-            width: 80%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .activeBar {
-              width: 0;
-            }
-            .unactiveBar {
-              width: 0;
-            }
+            position: relative;
+            display: block;
+            height: 65%;
+            line-height: 40px;
+            font-size: 1.5rem;
             .nav_caret {
               width: 50px;
               height: 50px;
@@ -150,10 +135,36 @@
               .nav_caret {
                 background-color: transparent;
               }
-              .tooltip {
-                visibility: hidden;
-              }
             }
+          }
+          .indicator {
+            position: absolute;
+            top: -75%;
+            width: 60px;
+            height: 60px;
+            background-color: #0b99f8;
+            border-radius: 50%;
+            border: 6px solid $color-background;
+            transition: 0.5s;
+          }
+          .tooltip {
+            position: absolute;
+            visibility: visible;
+            background-color: transparent;
+            left: 0;
+            padding: 0;
+            width: 100%;
+            font-weight: 400;
+            font-size: 0.75em;
+            letter-spacing: 0.05em;
+            transition: 0.5s;
+            opacity: 0;
+            transform: translateY(30px);
+            box-shadow: 0 0px 0px;
+          }
+          .activeTitle {
+            opacity: 1;
+            transform: translateY(20px);
           }
         }
       }

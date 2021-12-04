@@ -8,6 +8,7 @@
   min-width: 0;
   min-height: 0;
   background-color: $color-background-light;
+  transition: width 0.1s;
 
   &.horizontal {
     flex-direction: row;

@@ -25,7 +25,7 @@ class App extends BaseComponent {
 
     this.state = {
       workspaceVisibles: [true, true],
-      workspaceWeights: [0.2, 2],
+      workspaceWeights: [0.3, 2],
     };
     this.handleClickTitleBar = this.handleClickTitleBar.bind(this);
     this.handleChangeWorkspaceWeights =

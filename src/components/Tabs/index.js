@@ -4,23 +4,23 @@ import { Ellipsis } from "components";
 import styles from "./tabs.module.scss";
 import { classes, extension } from "common/util";
 import { PythonIcon, JsIcon, MarkdownIcon } from "assets/icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/fontawesome-free-solid";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faPlus } from "@fortawesome/fontawesome-free-solid";
 import { actions } from "reducers";
 import { connect } from "react-redux";
-import { languages } from "common/config";
+// import { languages } from "common/config";
 
 const Tabs = (props) => {
-  const handleAddFile = () => {
-    const { ext } = props.env;
-    const { files } = props.current;
-    const language = languages.find((language) => language.ext === ext);
-    const newFile = { ...language.skeleton };
-    let count = 0;
-    while (files.some((file) => file.name === newFile.name))
-      newFile.name = `code-${++count}.${ext}`;
-    props.addFile(newFile);
-  };
+  // const handleAddFile = () => {
+  //   const { ext } = props.env;
+  //   const { files } = props.current;
+  //   const language = languages.find((language) => language.ext === ext);
+  //   const newFile = { ...language.skeleton };
+  //   let count = 0;
+  //   while (files.some((file) => file.name === newFile.name))
+  //     newFile.name = `code-${++count}.${ext}`;
+  //   props.addFile(newFile);
+  // };
   const { editingFile, files } = props.current;
   if (!editingFile) return null;
   const iconName = [];
@@ -54,9 +54,9 @@ const Tabs = (props) => {
           </div>
         )
       )}
-      <div className={styles.title} onClick={() => handleAddFile()}>
+      {/* <div className={styles.title} onClick={() => handleAddFile()}>
         <FontAwesomeIcon fixedWidth icon={faPlus} />
-      </div>
+      </div> */}
       <div className={classes(styles.title, styles.fake)} />
     </>
   );

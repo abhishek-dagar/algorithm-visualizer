@@ -44,7 +44,7 @@ const NavBar = (props) => {
   ) {
     activeLink = 2;
   } else if (
-    location.pathname.split("/")[1] === links[3].split("/")[1]&&
+    location.pathname.split("/")[1] === links[3].split("/")[1] &&
     (activeLink !== 3 || activeLink === 3)
   ) {
     activeLink = 3;
@@ -73,27 +73,29 @@ const NavBar = (props) => {
               return (
                 <Link href={links[i]} key={i}>
                   <a
-                    className={styles.a}
+                    className={activeLink === i ? styles.activeA : undefined}
                     onClick={() => changeActivelink(i, links[i])}
                   >
-                    <li
-                      className={classes(
-                        styles.navigationOption,
-                        activeLink === i ? styles.active : ""
-                      )}
-                    >
-                      {activeLink === i ? (
-                        <div className={styles.activeBar}></div>
-                      ) : (
-                        <div className={styles.unactiveBar}></div>
-                      )}
+                    {activeLink === i ? (
+                      <div className={styles.indicator}></div>
+                    ) : (
+                      <div className={styles.unactiveBar}></div>
+                    )}
+                    <li className={classes(styles.navigationOption)}>
                       <FontAwesomeIcon
                         className={classes(styles.nav_caret)}
                         fixedWidth
                         icon={iconName}
                       />
-                      <span className={styles.tooltip}>{opt[i]}</span>
                     </li>
+                    <span
+                      className={classes(
+                        styles.tooltip,
+                        activeLink === i ? styles.activeTitle : undefined
+                      )}
+                    >
+                      {opt[i]}
+                    </span>
                   </a>
                 </Link>
               );
