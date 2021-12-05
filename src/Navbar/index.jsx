@@ -11,7 +11,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Logo from "assets/Viz_Icon.png";
+import Logo from "assets/logo.png";
 import Router from "next/router";
 import { useRouter } from "next/router";
 
