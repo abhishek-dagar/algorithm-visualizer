@@ -148,7 +148,7 @@ class App extends BaseComponent {
           <ToastContainer className={styles.toast_container} />
         </div>
         <div className={styles.unavailable}>
-          <h1>this page opens in Desktop</h1>
+          <h1>Visit this website on your laptop/desktop to see codes</h1>
         </div>
       </>
     );
