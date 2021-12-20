@@ -1,3 +1,5 @@
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KF2j-9iSf4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 # Merge Sort
 
 In computer science, merge sort (also commonly spelled
@@ -24,9 +26,9 @@ emulate merge sort (top-down).
 
 ## Complexity
 
-| Name                  | Best            | Average             | Worst               | Memory    | Stable    | Comments  |
-| --------------------- | :-------------: | :-----------------: | :-----------------: | :-------: | :-------: | :-------- |
-| **Merge sort**        | n&nbsp;log(n)   | n&nbsp;log(n)       | n&nbsp;log(n)       | n         | Yes       |           |
+| Name           |     Best      |    Average    |     Worst     | Memory | Stable | Comments |
+| -------------- | :-----------: | :-----------: | :-----------: | :----: | :----: | :------- |
+| **Merge sort** | n&nbsp;log(n) | n&nbsp;log(n) | n&nbsp;log(n) |   n    |  Yes   |          |
 
 ## References
 

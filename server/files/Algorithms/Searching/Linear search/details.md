@@ -1,10 +1,13 @@
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4GPdGsB3OSc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 # Linear Search
-In computer science, linear search or sequential search is a 
-method for finding a target value within a list. It sequentially 
-checks each element of the list for the target value until a 
+
+In computer science, linear search or sequential search is a
+method for finding a target value within a list. It sequentially
+checks each element of the list for the target value until a
 match is found or until all the elements have been searched.
-Linear search runs in at worst linear time and makes at most `n` 
-comparisons, where `n` is the length of the list. 
+Linear search runs in at worst linear time and makes at most `n`
+comparisons, where `n` is the length of the list.
 
 ![Linear Search](https://www.tutorialspoint.com/data_structures_algorithms/images/linear_search.gif)
 
@@ -14,6 +17,7 @@ comparisons, where `n` is the length of the list.
 exactly once.
 
 ## References
+
 - [Wikipedia](https://en.wikipedia.org/wiki/Linear_search)
 - [TutorialsPoint](https://www.tutorialspoint.com/data_structures_algorithms/linear_search_algorithm.htm)
 - [Youtube](https://www.youtube.com/watch?v=SGU9duLE30w)
