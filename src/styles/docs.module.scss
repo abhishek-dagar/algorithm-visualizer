@@ -2,18 +2,22 @@
 
 .container {
   width: 100%;
-  background-color: $color-background;
+  background-color: $color-background-light;
   overflow: auto;
   color: #c9d1d9;
   .Banner {
     border-bottom: 1px solid $theme-light;
     position: relative;
+    background-color: $color-background;
     .title {
       font-size: 3rem;
       // text-align: center;
       margin: 0;
       margin-left: 5%;
     }
+  }
+  .container__sidebar {
+    background-color: $color-background;
   }
   .docsContainer {
     display: flex;
@@ -28,12 +32,13 @@
       width: 100%;
       .content {
         border: 1px solid $theme-light;
-        border-radius: 6px;
+        border-radius: 12px;
         word-wrap: break-word;
         padding: 32px;
         user-select: text;
         font-size: 16px;
         line-height: 1.5;
+        background-color: $color-background;
         h1 {
           font-weight: 600px;
           font-size: 2em;

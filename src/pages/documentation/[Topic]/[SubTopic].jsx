@@ -1,10 +1,7 @@
 import styles from "styles/docs.module.scss";
 import React, { useState, useEffect } from "react";
 import { SideMenu } from "components";
-import Link from "next/link";
 import {
-  faAngleDown,
-  faAngleRight,
   faCheck,
 } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

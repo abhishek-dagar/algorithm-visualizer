@@ -35,7 +35,7 @@ class VsCodeEditor extends Component {
       ? "json"
       : "plain_text";
     const options = {
-      readOnly: true,
+      // readOnly: true,
       wordWrap: "on",
       dragAndDrop: true,
     };
