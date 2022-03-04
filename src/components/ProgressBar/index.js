@@ -1,6 +1,8 @@
 import React from "react";
 import { classes } from "common/util";
 import styles from "./ProgressBar.module.scss";
+import { connect } from "react-redux";
+import { actions } from "reducers";
 
 class ProgressBar extends React.Component {
   constructor(props) {
@@ -33,13 +35,22 @@ class ProgressBar extends React.Component {
 
   render() {
     const { className, total, current } = this.props;
+    const { Theme } = this.props.Theme;
     const width = (current / total) * 100;
     if (width === "NaN") {
       width = 100;
     }
     return (
       <div
-        className={classes(styles.progress_bar, className)}
+        className={classes(
+          styles.progress_bar,
+          Theme === "Light"
+            ? styles.ProgressBarLight
+            : Theme === "Dark"
+            ? styles.ProgressBarDark
+            : styles.ProgressBarLight,
+          className
+        )}
         onMouseDown={this.handleMouseDown}
       >
         <div className={styles.active} style={{ width: `${width}%` }} />
@@ -51,4 +62,4 @@ class ProgressBar extends React.Component {
   }
 }
 
-export default ProgressBar;
+export default connect(({ Theme }) => ({ Theme }), actions)(ProgressBar);

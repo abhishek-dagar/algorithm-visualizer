@@ -1,19 +1,39 @@
 @import "~common/stylesheet/index";
+.containerLight{
+  background-color: $theme-light-background;
+  background-image: url("../assets/aboutbackground.svg");
+  .title {
+    color: $theme-light-font;
+  }
+  .details {
+    color: $theme-light-font;
+  }
+}
+.containerDark{
+  background-color: $color-background-light;
+  background-image: url("../assets/aboutbackgrounddark.svg");
+  .title {
+    color: #ffffff;
+  }
+  .details {
+    color: #ffffff;
+  }
+}
 .mainContainer {
-  background-color: rgb(190, 189, 189);
   width: 100%;
   overflow: auto;
-  background-image: url("../assets/backgroundpattern.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
   .title {
     font-size: 5rem;
     text-align: center;
-    color: #ffffff;
+    font-weight: 1000;
   }
   .details {
     margin: 4% 26%;
     text-align: center;
     font-size: 1.5rem;
-    color: white;
+    font-weight: 600;
   }
   .backGround {
     display: flex;

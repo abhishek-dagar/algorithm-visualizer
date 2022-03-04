@@ -80,28 +80,31 @@ class Player extends BaseComponent {
     this.setState({ editingFile: file });
     this.setState({ building: true });
     const ext = extension(file.name);
-    setTimeout(() => {
-      if (this.tracerApiSource) this.tracerApiSource.cancel();
-      this.tracerApiSource = axios.CancelToken.source();
-      if (ext in TracerApi) {
-        TracerApi[ext](
-          { code: file.content, name: file.name },
-          undefined,
-          this.tracerApiSource.token
-        )
-          .then((commands) => {
-            this.tracerApiSource = null;
-            this.reset(commands);
-            this.setState({ building: false });
-          })
-          .catch((error) => {
-            if (axios.isCancel(error)) return;
-            this.tracerApiSource = null;
-            this.setState({ building: false });
-            this.handleError(error);
-          });
-      }
-    }, ext==="md"?0:1000);
+    setTimeout(
+      () => {
+        if (this.tracerApiSource) this.tracerApiSource.cancel();
+        this.tracerApiSource = axios.CancelToken.source();
+        if (ext in TracerApi) {
+          TracerApi[ext](
+            { code: file.content, name: file.name },
+            undefined,
+            this.tracerApiSource.token
+          )
+            .then((commands) => {
+              this.tracerApiSource = null;
+              this.reset(commands);
+              this.setState({ building: false });
+            })
+            .catch((error) => {
+              if (axios.isCancel(error)) return;
+              this.tracerApiSource = null;
+              this.setState({ building: false });
+              this.handleError(error);
+            });
+        }
+      },
+      ext === "md" ? 0 : 1000
+    );
   }
 
   isValidCursor(cursor) {
@@ -169,9 +172,20 @@ class Player extends BaseComponent {
     const { editingFile } = this.props.current;
     const { chunks, cursor } = this.props.player;
     const { speed, playing, building } = this.state;
+    const { Theme } = this.props.Theme;
 
     return (
-      <div className={classes(styles.player, className)}>
+      <div
+        className={classes(
+          styles.player,
+          Theme === "Light"
+            ? styles.playerLight
+            : Theme === "Dark"
+            ? styles.playerDark
+            : styles.playerLight,
+          className
+        )}
+      >
         <Button
           icon={faWrench}
           primary
@@ -234,6 +248,6 @@ class Player extends BaseComponent {
 }
 
 export default connect(
-  ({ current, player }) => ({ current, player }),
+  ({ current, player, Theme }) => ({ current, player, Theme }),
   actions
 )(Player);

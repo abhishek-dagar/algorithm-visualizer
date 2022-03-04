@@ -13,6 +13,14 @@ $color-true: #00a67e;
 $color-background: #0d1117;
 $color-background-light: #161b22;
 
+$theme-light-background: #ebf5fc;
+$theme-light-background-higlight: #bfccd4;
+$theme-light-border: #d0d7de;
+$theme-light-font: #24292f;
+$theme-light-hover: #b7e0ff;
+$theme-light-selected: #9ccff8fd;
+
+
 :export {
   themeDark: $theme-dark;
   themeNormal: $theme-normal;
@@ -27,5 +35,11 @@ $color-background-light: #161b22;
   colorHighlight: $color-highlight;
   colorActive: $color-active;
   color-background: $color-background;
-  $color-background-light: $color-background-light;
+  color-background-light: $color-background-light;
+  theme-light-background: $theme-light-background;
+  theme-light-border: $theme-light-border;
+  theme-light-font: $theme-light-font;
+  theme-light-background-higlight: $theme-light-background-higlight;
+  theme-light-hover: $theme-light-hover;
+  theme-light-selected: $theme-light-selected;
 }

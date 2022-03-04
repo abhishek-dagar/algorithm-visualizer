@@ -7,6 +7,8 @@ import Renderer from "../Renderer";
 import { faCheck } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { classes } from "common/util";
+// import { connect } from "react-redux";
+// import { actions } from "reducers";
 
 class MarkdownRenderer extends Renderer {
   constructor(props) {
@@ -78,9 +80,20 @@ class MarkdownRenderer extends Renderer {
   }
   renderData() {
     const { markdown } = this.props.data;
+    const { Theme } = this.props.Theme;
 
     return (
-      <div className={styles.markdown}>
+      <div
+        className={classes(
+          styles.markdown,
+          styles.container,
+          Theme === "Light"
+            ? styles.containerDark
+            : Theme === "Dark"
+            ? styles.containerDark
+            : styles.containerDark
+        )}
+      >
         <Markdown
           className={styles.content}
           options={{
@@ -100,5 +113,5 @@ class MarkdownRenderer extends Renderer {
     );
   }
 }
-
-export default MarkdownRenderer;
+export default MarkdownRenderer
+// export default connect(({ Theme }) => ({ Theme }), actions)(MarkdownRenderer);

@@ -1,12 +1,28 @@
 @import "~common/stylesheet/index";
 
+.TabDark {
+  &.selected {
+    border-bottom: 2px solid $theme-light;
+    background-color: $color-background-light;
+  }
+}
+.TabLight {
+  background-color: $theme-light-hover;
+  &.selected {
+    border-bottom: 2px solid $theme-light;
+    background-color: $theme-light-selected;
+  }
+  &.fake{
+    background-color: transparent;
+  }
+}
 .title {
   display: flex;
   align-items: center;
   cursor: pointer;
   padding: 0 12px;
   height: 25px;
-  margin-top: 2px;
+  margin-top: 4px;
   .filename {
     margin-left: 12px;
   }
@@ -23,10 +39,8 @@
   }
 
   &.selected {
-    border-bottom: 2px solid $theme-light;
     margin: 0 -1px;
     margin-top: 7px;
-    background-color: $color-background-light;
   }
 
   &.fake {

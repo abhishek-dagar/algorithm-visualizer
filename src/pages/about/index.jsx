@@ -2,10 +2,17 @@ import React, { Component } from "react";
 import styles from "styles/about.module.scss";
 import { Card } from "components";
 import user from "assets/homePage-removebg-preview.png";
+import { classes } from "common/util";
+import { connect } from "react-redux";
+import { actions } from "reducers";
 
-
-export default class About extends Component {
+class About extends Component {
+  constructor(props){
+    super();
+    this.props=props;
+  }
   render() {
+    const { Theme } = this.props.Theme;
     const info = [
       {
         key: 1,
@@ -24,7 +31,16 @@ export default class About extends Component {
     ];
     return (
       <>
-        <div className={styles.mainContainer}>
+        <div
+          className={classes(
+            styles.mainContainer,
+            Theme === "Light"
+              ? styles.containerLight
+              : Theme === "Dark"
+              ? styles.containerDark
+              : styles.containerLight
+          )}
+        >
           <h1 className={styles.title}>
             <strong>Our Team</strong>
           </h1>
@@ -42,3 +58,4 @@ export default class About extends Component {
     );
   }
 }
+export default connect(({ Theme }) => ({ Theme }), actions)(About);

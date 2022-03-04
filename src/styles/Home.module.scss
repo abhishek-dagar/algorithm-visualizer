@@ -1,65 +1,78 @@
 @import "~common/stylesheet/index";
-.mainContainer {
-  background-color: $color-background-light;
+.containerDark {
+  background-image: url("../assets/backgorundHomeDark.svg");
   color: white;
+  .BgImage {
+    display: none;
+  }
+  .container {
+    .textContainer {
+      a:hover {
+        box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+.containerLight {
+  color: #24292f;
+  background-image: url("../assets/backgorundHomeLight.svg");
+  .BgImage {
+    display: none;
+  }
+  .container {
+    .textContainer {
+      a:hover {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}
+.mainContainer {
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  .BgImage {
-    grid-area: 1 / 1 / 3 / 2;
-  }
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
   .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    grid-area: 1 / 1 / 2 / 2;
     z-index: 1;
     text-align: center;
     .title {
-      grid-area: 1 / 2 / 2 / 4;
       text-align: center;
       font-size: 5rem;
+      margin-top: 0;
     }
     .textContainer {
-      grid-area: 2 / 2 / 3 / 4;
+      width: 100%;
+      height: auto;
       h2 {
-        margin-bottom: 7%;
+        margin-bottom: 4%;
       }
       a {
-        color: white;
         font-size: 15px;
         font-weight: bold;
         padding: 20px 30px;
         border-radius: 30px;
-        border: 1px solid #0b7af8;
+        background-color: #0b7af8;
+        color: beige;
       }
       a:hover {
         border: none;
-        color: white;
         transition: 0.2s;
         font-size: 17px;
-        background-color: #0b7af8;
-        border: 1px solid #0b7af8;
-        box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
+        color: white;
+        background-color: #ff568f;
       }
     }
   }
   .QuoteContainer {
     text-align: center;
-    margin-top: 3%;
+    margin-top: 4%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    grid-area: 2 / 1 / 3 / 2;
     .imageContainer {
       width: 50%;
       transition: 0.2s;
@@ -77,23 +90,19 @@
     }
   }
 }
-@media (max-width: 1024px) {
-  .mainContainer {
-    .BgImage {
-      grid-area: 2 / 1 / 3 / 2;
-    }
-  }
-}
 @media (max-width: 768px) {
+  .containerLight {
+    background-size: 0;
+    background-color: $theme-light-background;
+  }
   .mainContainer {
     position: absolute;
     top: 0;
     height: 100%;
-    .BgImage {
-      grid-area: 2 / 1 / 3 / 2;
-    }
     .container {
-      grid-template-rows: 0.5fr 0.5fr;
+      .title {
+        margin-top: 4%;
+      }
       .textContainer {
         a {
           background-color: #0b7af8;
@@ -101,6 +110,7 @@
       }
     }
     .QuoteContainer {
+      margin-top: 6%;
       .imageContainer {
         width: 65%;
       }
@@ -110,34 +120,42 @@
     }
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 697px) {
   .mainContainer {
     .container {
-      grid-template-columns: 0.2fr repeat(2, 1fr) 0.2fr;
       .title {
         font-size: 3rem;
       }
+      .textContainer {
+        h2 {
+          margin-bottom: 7%;
+        }
+      }
+    }
+    .QuoteContainer {
+      margin-top: 20%;
+    }
+  }
+}
+@media (max-width: 425px) {
+  .mainContainer {
+    .container {
       .textContainer {
         position: relative;
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        h1 {
-          font-size: 1.5em;
-        }
-        h2 {
-          display: none;
-        }
         a {
-          width: 46%;
+          width: 150px;
         }
       }
     }
     .QuoteContainer {
+      margin-top: 25%;
       h2 {
-        width: 100%;
-        font-size: 0.7rem;
+        width: 95%;
+        font-size: 1rem;
       }
     }
   }
@@ -148,27 +166,11 @@
       .textContainer {
         a {
           font-size: 16px;
-          width: 48%;
           &:hover {
             transition: none;
             font-size: 16px;
             border: 0;
             box-shadow: none;
-          }
-        }
-      }
-    }
-  }
-}
-@media (max-width: 375px) {
-  .mainContainer {
-    .container {
-      .textContainer {
-        a {
-          font-size: 12px;
-          width: 48%;
-          &:hover {
-            font-size: 12px;
           }
         }
       }

@@ -1,19 +1,35 @@
 @import "~common/stylesheet/index";
-
+.containerDark {
+  background-color: $color-background;
+  .search_bar_container {
+    border-bottom: 1px solid $theme-light;
+  }
+  .closeNavigator {
+    background-color: $theme-light;
+  }
+}
+.containerLight {
+  background-color: $theme-light-background;
+  .search_bar_container {
+    border-bottom: 1px solid $theme-light-border;
+  }
+  .closeNavigator {
+    background-color: $theme-light-background;
+    border: 1px solid $theme-light-border;
+  }
+}
 .navigator {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 0;
   position: relative;
-  background-color: $color-background;
 
   .search_bar_container {
     height: $line-height;
     padding: 0 8px;
     display: flex;
     align-items: stretch;
-    border-bottom: 1px solid $theme-light;
 
     &:focus-within {
       background-color: $color-overlay;
@@ -40,20 +56,19 @@
     border-top: 1px solid $theme-light;
     overflow-y: auto;
   }
-  .closeNavigator{
+  .closeNavigator {
     bottom: 0;
     right: 0;
     width: 30px;
-    height: 5%;
+    height: 4%;
     text-align: center;
     margin-bottom: 15%;
-    background-color: $theme-light;
     position: absolute;
-    color: #bbb;
-    .search_icon{
+    color: $theme-light-font;
+    .search_icon {
       position: absolute;
-      bottom: 30%;
-      right: 20%;
+      bottom: 35%;
+      right: 25%;
     }
   }
 }

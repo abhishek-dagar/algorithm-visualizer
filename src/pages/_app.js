@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Algorithm Visualizer</title>
+        <title>GeeksPoint</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
@@ -42,7 +42,8 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Provider store={store}>
         <div className={styles.mainContainer}>
-          <Navbar />
+          <Navbar className={styles.navBar}/>
+          <div className={styles.fakeNav}>hel</div>
           <div className={styles.ComponentContainer}>
             <Component {...pageProps} />
           </div>

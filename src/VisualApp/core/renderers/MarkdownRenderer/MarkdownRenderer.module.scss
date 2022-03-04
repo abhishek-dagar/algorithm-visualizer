@@ -1,5 +1,124 @@
 @import "~common/stylesheet/index";
 
+.containerDark {
+  background-color: $color-background-light;
+  .content {
+    background-color: $color-background;
+    border: 1px solid $theme-light;
+    h1 {
+      border-bottom: 1px solid #21262d;
+    }
+    h2 {
+      border-bottom: 1px solid #21262d;
+    }
+    a {
+      color: #58a6ff;
+    }
+    blockquote {
+      color: #8b949e;
+      border-left: 0.25em solid #30363d;
+    }
+    pre {
+      background-color: $color-background-light;
+    }
+    code {
+      background-color: $color-background-light;
+      padding: 0;
+    }
+    .sourceShell {
+      .activeIcon {
+        border: 1px solid #07fd1c46;
+      }
+      .copy_icon {
+        background-color: $color-background-light;
+        border: 1px solid #f0f6fc1a;
+        color: #616161;
+        .TickIcon {
+          color: #00ff84;
+        }
+        &:hover {
+          border-color: #8b949e;
+          background-color: #30363d;
+        }
+      }
+    }
+    table {
+      tr {
+        border-top: 1px solid $theme-light;
+        th {
+          border: 1px solid #30363d;
+        }
+        td {
+          border: 1px solid #30363d;
+        }
+        td[class="code"] {
+          background-color: $color-background-light;
+        }
+      }
+    }
+  }
+}
+
+.containerLight {
+  background-color: $theme-light-background;
+  .content {
+    background-color: $theme-light-background;
+    border: 1px solid $theme-light-border;
+    color: $theme-light-font;
+    h1 {
+      border-bottom: 1px solid $theme-light-border;
+    }
+    h2 {
+      border-bottom: 1px solid $theme-light-border;
+    }
+    a {
+      color: #58a6ff;
+    }
+    blockquote {
+      color: #8b949e;
+      border-left: 0.25em solid $theme-light-border;
+    }
+    pre {
+      color: black;
+      background-color: #d9edfccc;
+    }
+    code {
+      color: $theme-light-font;
+      background-color: #d9edfccc;
+    }
+    .sourceShell {
+      .activeIcon {
+        border: 1px solid #07fd1c46;
+      }
+      .copy_icon {
+        background-color: $theme-light-background;
+        border: 1px solid #f0f6fc1a;
+        color: #616161;
+        .TickIcon {
+          color: #00ff84;
+        }
+        &:hover {
+          border-color: #8b949e;
+          background-color: $theme-light-background;
+        }
+      }
+    }
+    table {
+      tr {
+        border-top: 1px solid $theme-light;
+        th {
+          border: 1px solid $theme-light-border;
+        }
+        td {
+          border: 1px solid $theme-light-border;
+        }
+        td[class="code"] {
+          background-color: $theme-light-background;
+        }
+      }
+    }
+  }
+}
 .markdown {
   flex: 1;
   align-self: stretch;
@@ -7,14 +126,10 @@
   flex-direction: column;
   align-items: stretch;
   overflow-y: auto;
-  background-color: $color-background-light;
 
-  // padding: 24px;
   .content {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
       sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    background-color: $color-background;
-    border: 1px solid $theme-light;
     border-radius: 6px;
     word-wrap: break-word;
     padding: 32px;
@@ -30,21 +145,16 @@
       font-weight: 600px;
       font-size: 2em;
       margin: 0.67em 0;
-      border-bottom: 1px solid #21262d;
     }
     h2 {
       padding-bottom: 0.3em;
       font-size: 1.5em;
-      border-bottom: 1px solid #21262d;
     }
     a {
-      color: #58a6ff;
       text-decoration: none;
     }
     blockquote {
       padding: 0 1em;
-      color: #8b949e;
-      border-left: 0.25em solid #30363d;
     }
     p {
       margin-top: 0;
@@ -55,13 +165,11 @@
       overflow: auto;
       font-size: 85%;
       line-height: 1.45;
-      background-color: $color-background-light;
       border-radius: 6px;
       position: relative;
       margin: 0;
     }
     code {
-      background-color: $color-background-light;
       padding: 0;
     }
     .sourceShell {
@@ -76,7 +184,6 @@
       .copy_icon {
         transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
         transition-property: color, background-color, border-color;
-        background-color: $color-background-light;
         display: inline-block;
         position: absolute;
         border-radius: 25%;
@@ -85,7 +192,6 @@
         font-size: 14px;
         vertical-align: middle;
         user-select: none;
-        color: #616161;
         cursor: pointer;
         width: 33px;
         opacity: 0;
@@ -96,8 +202,6 @@
           color: #00ff84;
         }
         &:hover {
-          border-color: #8b949e;
-          background-color: #30363d;
           transition: 0.1s;
         }
       }
@@ -123,18 +227,12 @@
       max-width: 100%;
       overflow: auto;
       tr {
-        border-top: 1px solid $theme-light;
         th {
           display: table-cell;
-          border: 1px solid #30363d;
           padding: 6px 13px;
         }
         td {
-          border: 1px solid #30363d;
           padding: 6px 13px;
-        }
-        td[class="code"] {
-          background-color: $color-background-light;
         }
       }
     }

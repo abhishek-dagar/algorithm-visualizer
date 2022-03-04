@@ -1,15 +1,15 @@
 import styles from "styles/docs.module.scss";
 import React, { useState, useEffect } from "react";
 import { SideMenu } from "components";
-import {
-  faCheck,
-} from "@fortawesome/fontawesome-free-solid";
+import { faCheck } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "highlight.js/styles/github-dark.css";
 import { classes } from "common/util";
 import { DocsApi } from "apis";
 import Markdown from "markdown-to-jsx";
 import Highlight from "react-highlight";
+import { connect } from "react-redux";
+import { actions } from "reducers";
 
 export const getServerSideProps = async (context) => {
   return {
@@ -23,6 +23,7 @@ const Documentation = (props) => {
   const [data, setdata] = useState("");
   const [active, setactive] = useState(false);
   const { Topic, SubTopic } = props.params;
+  const { Theme } = props.Theme;
 
   useEffect(() => {
     DocsApi.getDocsMenu().then(({ topics }) => {
@@ -99,10 +100,19 @@ const Documentation = (props) => {
   };
   return (
     <>
-      <div className={styles.container}>
+      <div
+        className={classes(
+          styles.container,
+          Theme === "Light"
+            ? styles.containerLight
+            : Theme === "Dark"
+            ? styles.containerDark
+            : styles.containerLight
+        )}
+      >
         <div className={styles.Banner}>
           <h1 className={styles.title}>
-            <strong>Algorithm Visualizer Documentation</strong>
+            <strong>Documentation</strong>
           </h1>
         </div>
         <div className={styles.docsContainer}>
@@ -134,4 +144,4 @@ const Documentation = (props) => {
     </>
   );
 };
-export default Documentation;
+export default connect(({ Theme }) => ({ Theme }), actions)(Documentation);

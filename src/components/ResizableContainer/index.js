@@ -2,6 +2,8 @@ import React from "react";
 import { classes } from "common/util";
 import { Divider } from "..";
 import styles from "./ResizableContainer.module.scss";
+import { connect } from "react-redux";
+import { actions } from "reducers";
 
 class ResizableContainer extends React.Component {
   handleResize(prevIndex, index, targetElement, clientX, clientY) {
@@ -38,6 +40,7 @@ class ResizableContainer extends React.Component {
       visibles,
       revHorizontal,
     } = this.props;
+    const { Theme } = this.props.Theme;
     const elements = [];
     let lastIndex = -1;
     const totalWeight = weights
@@ -77,6 +80,11 @@ class ResizableContainer extends React.Component {
       <div
         className={classes(
           styles.resizable_container,
+          Theme === "Light"
+            ? styles.resizecontainerLight
+            : Theme === "Dark"
+            ? styles.resizecontainerDark
+            : styles.resizecontainerLight,
           horizontal && styles.horizontal,
           className,
           revHorizontal && styles.revHorizontal
@@ -88,4 +96,4 @@ class ResizableContainer extends React.Component {
   }
 }
 
-export default ResizableContainer;
+export default connect(({ Theme }) => ({ Theme }), actions)(ResizableContainer);

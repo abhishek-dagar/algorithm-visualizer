@@ -46,9 +46,20 @@ class Header extends BaseComponent {
     const { className, onClickTitleBar, navigatorOpened } = this.props;
     const { titles } = this.props.current;
     const { fullscreenIcon } = this.state;
+    const { Theme } = this.props.Theme;
 
     return (
-      <header className={classes(styles.header, className)}>
+      <header
+        className={classes(
+          styles.header,
+          Theme === "Light"
+            ? styles.containerLight
+            : Theme === "Dark"
+            ? styles.containerDark
+            : styles.containerLight,
+          className
+        )}
+      >
         <div className={classes(styles.row, styles.border)}>
           <div className={classes(styles.section)}>
             <Button className={styles.title_bar} onClick={onClickTitleBar}>
@@ -86,5 +97,8 @@ class Header extends BaseComponent {
 }
 
 export default withRouter(
-  connect(({ current, env }) => ({ current, env }), actions)(Header)
+  connect(
+    ({ current, env, Theme }) => ({ current, env, Theme }),
+    actions
+  )(Header)
 );

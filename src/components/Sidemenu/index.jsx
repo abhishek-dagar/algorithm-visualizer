@@ -5,12 +5,15 @@ import styles from "./SideMenu.module.scss";
 import { classes } from "common/util";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleRight } from "@fortawesome/fontawesome-free-solid";
+import { connect } from "react-redux";
+import { actions } from "reducers";
 
-export default function SideMenu(props) {
+const SideMenu = (props) => {
   const { topics, className, handelData } = props;
   const [categoriesOpened, setcategoriesOpened] = useState({});
   const { Topic } = props.params;
   const wrapperRef = [];
+  const { Theme } = props.Theme;
 
   const toggleCategory = (key, categoryOpened = !categoriesOpened[key]) => {
     const categoriesOpened = {
@@ -48,11 +51,19 @@ export default function SideMenu(props) {
   return (
     <>
       <aside
-        className={classes(className, styles.container__sidebar)}
+        className={classes(
+          className,
+          styles.container__sidebar,
+          Theme === "Light"
+            ? styles.containerLight
+            : Theme === "Dark"
+            ? styles.containerDark
+            : styles.containerLight
+        )}
         ref={customref}
       >
-        <div className={styles.title}>Algorithm Visualizer Documentation</div>
-        <Divider className={styles.divider}/>
+        <div className={styles.title}>Documentation</div>
+        <Divider className={styles.divider} />
         <div className={styles.MenuContainer}>
           {topics.map((Topic) => {
             const key = Topic.key;
@@ -102,4 +113,5 @@ export default function SideMenu(props) {
       </aside>
     </>
   );
-}
+};
+export default connect(({ Theme }) => ({ Theme }), actions)(SideMenu);

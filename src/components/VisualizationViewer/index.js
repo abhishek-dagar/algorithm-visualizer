@@ -53,6 +53,7 @@ class VisualizationViewer extends BaseComponent {
 
   applyCommand(command) {
     const { key, method, args } = command;
+    const { Theme } = this.props.Theme;
     try {
       if (key === null && method === "setRoot") {
         const [root] = args;
@@ -74,7 +75,8 @@ class VisualizationViewer extends BaseComponent {
         this.objects[key] = new TracerClass(
           key,
           (key) => this.objects[key],
-          title
+          title,
+          Theme
         );
       } else {
         this.objects[key][method](...args);
@@ -90,13 +92,33 @@ class VisualizationViewer extends BaseComponent {
 
   render() {
     const { className } = this.props;
+    const { Theme } = this.props.Theme;
 
     return (
-      <div className={classes(styles.visualization_viewer, className)}>
+      <div
+        className={classes(
+          styles.visualization_viewer,
+          Theme === "Light"
+            ? styles.containerLight
+            : Theme === "Dark"
+            ? styles.containerDark
+            : styles.containerLight,
+          className
+        )}
+      >
         {this.root ? (
           this.root.render()
         ) : (
-          <div className={styles.loader}>
+          <div
+            className={classes(
+              styles.loader,
+              Theme === "Light"
+                ? styles.containerLight
+                : Theme === "Dark"
+                ? styles.containerDark
+                : styles.containerLight
+            )}
+          >
             <ScaleLoader color={"#0b7af8"} loading={true} size={150} />
           </div>
         )}
@@ -106,6 +128,6 @@ class VisualizationViewer extends BaseComponent {
 }
 
 export default connect(
-  ({ player }) => ({ player }),
+  ({ player, Theme }) => ({ player, Theme }),
   actions
 )(VisualizationViewer);

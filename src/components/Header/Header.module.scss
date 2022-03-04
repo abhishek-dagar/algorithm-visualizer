@@ -1,14 +1,25 @@
 @import "~common/stylesheet/index";
 
+.containerDark{
+  background-color: $color-background-light;
+  .border {
+    border-bottom: 1px solid $theme-light;
+  }
+
+}
+.containerLight{
+  background-color: $theme-light-background;
+  color: $theme-light-font;
+  .border {
+    border-bottom: 1px solid $theme-light-border;
+  }
+
+}
 .header {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  background-color: $color-background-light;
 
-  .border {
-    border-bottom: 1px solid $theme-light;
-  }
   .row {
     display: flex;
     flex-wrap: wrap;

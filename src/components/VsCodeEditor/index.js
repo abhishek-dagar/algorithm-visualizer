@@ -5,16 +5,33 @@ import { connect } from "react-redux";
 import { languages } from "common/config";
 import Editor from "@monaco-editor/react";
 class VsCodeEditor extends Component {
+  constructor(props){
+    super(props);
+    this.handleEditorDidMount=this.handleEditorDidMount.bind(this);
+  }
   handleEditorDidMount() {
-    monaco.editor.defineTheme("my-theme", {
-      base: "vs-dark",
-      inherit: true,
-      rules: [{ background: "161b22" }],
-      colors: {
-        "editor.background": "#161b22",
-      },
-    });
-    monaco.editor.setTheme("my-theme");
+    const { Theme } = this.props.Theme;
+    if (Theme==="Dark"){
+      monaco.editor.defineTheme("my-theme", {
+        base: "vs-dark",
+        inherit: true,
+        rules: [{ background: "161b22" }],
+        colors: {
+          "editor.background": "#161b22",
+        },
+      });
+      monaco.editor.setTheme("my-theme");
+    }else{
+      monaco.editor.defineTheme("my-theme", {
+        base: "vs",
+        inherit: true,
+        rules: [{ background: "ebf5fc" }],
+        colors: {
+          "editor.background": "#ebf5fc",
+        },
+      });
+      monaco.editor.setTheme("my-theme");
+    }
   }
   handleEditorValidation(markers) {
     // markers.forEach((marker) => console.log("onValidate:", marker.message));
@@ -55,7 +72,7 @@ class VsCodeEditor extends Component {
   }
 }
 export default connect(
-  ({ current, env, player }) => ({ current, env, player }),
+  ({ current, env, player, Theme }) => ({ current, env, player, Theme }),
   actions,
   null,
   { forwardRef: true }

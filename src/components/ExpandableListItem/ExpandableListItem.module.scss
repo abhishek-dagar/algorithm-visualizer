@@ -5,10 +5,17 @@
 
   .icon {
     margin-left: 4px;
+    color: $theme-light-font;
   }
 }
-
-.expandable_list_item {
+.containerDark {
   background-color: #161b22;
   border-bottom: 1px solid $theme-dark;
+}
+.containerLight {
+  background-color: $theme-light-background-higlight;
+  // border-bottom: 1px solid #8d8c8c;
+  .icon {
+    color: $theme-light-font;
+  }
 }

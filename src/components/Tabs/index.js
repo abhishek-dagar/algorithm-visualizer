@@ -22,6 +22,7 @@ const Tabs = (props) => {
   //   props.addFile(newFile);
   // };
   const { editingFile, files } = props.current;
+  const { Theme } = props.Theme;
   if (!editingFile) return null;
   const iconName = [];
   files.forEach((file) => {
@@ -36,16 +37,44 @@ const Tabs = (props) => {
   });
   return (
     <>
-      <div className={classes(styles.title, styles.fake)} />
+      <div
+        className={classes(
+          styles.title,
+          Theme === "Light"
+            ? styles.TabLight
+            : Theme === "Dark"
+            ? styles.TabDark
+            : styles.TabLight,
+          styles.fake
+        )}
+      />
       {files.map((file, i) =>
         file === editingFile ? (
-          <div className={classes(styles.title, styles.selected)} key={i}>
+          <div
+            className={classes(
+              styles.title,
+              styles.titleTheme === "Light"
+                ? styles.TabLight
+                : Theme === "Dark"
+                ? styles.TabDark
+                : styles.TabLight,
+              styles.selected
+            )}
+            key={i}
+          >
             <Image src={iconName[i]} alt="lang" width={20} height={20}></Image>
             <Ellipsis className={styles.filename}>{file.name}</Ellipsis>
           </div>
         ) : (
           <div
-            className={styles.title}
+            className={classes(
+              styles.title,
+              Theme === "Light"
+                ? styles.TabLight
+                : Theme === "Dark"
+                ? styles.TabDark
+                : styles.TabLight
+            )}
             key={i}
             onClick={() => props.setEditingFile(file)}
           >
@@ -61,4 +90,7 @@ const Tabs = (props) => {
     </>
   );
 };
-export default connect(({ current, env }) => ({ current, env }), actions)(Tabs);
+export default connect(
+  ({ current, env, Theme }) => ({ current, env, Theme }),
+  actions
+)(Tabs);

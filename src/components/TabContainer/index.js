@@ -26,6 +26,7 @@ class TabContainer extends React.Component {
     const { className, children } = this.props;
     const { editingFile } = this.props.current;
     const { workspaceVisibles, workspaceWeights } = this.state;
+    const { Theme } = this.props.Theme;
 
     if (!editingFile) return null;
     let revHorizontal = false;
@@ -36,7 +37,17 @@ class TabContainer extends React.Component {
     }
 
     return (
-      <div className={classes(styles.tab_container, className)}>
+      <div
+        className={classes(
+          styles.tab_container,
+          Theme === "Light"
+            ? styles.TabcontainerLight
+            : Theme === "Dark"
+            ? styles.TabcontainerDark
+            : styles.TabcontainerLight,
+          className
+        )}
+      >
         {!revHorizontal ? (
           <>
             <div className={styles.tab_bar}>
@@ -90,6 +101,6 @@ class TabContainer extends React.Component {
 }
 
 export default connect(
-  ({ current, env }) => ({ current, env }),
+  ({ current, env, Theme }) => ({ current, env, Theme }),
   actions
 )(TabContainer);

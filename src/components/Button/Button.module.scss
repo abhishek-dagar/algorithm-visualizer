@@ -1,5 +1,86 @@
 @import "~common/stylesheet/index";
+.containerDark {
+  &:hover {
+    background-color: $color-overlay;
+  }
+  &.primary {
+    &:hover {
+      &:active {
+        box-shadow: 0px 0px 10px 3px #1a1a1a inset;
+      }
+    }
 
+    &.active {
+      background-color: $color-shadow;
+      box-shadow: 0px 0px 10px 3px #1a1a1a inset;
+      font-weight: bold;
+
+      .icon {
+        color: $color-active;
+      }
+    }
+  }
+
+  &.selected {
+    background-color: $color-shadow;
+
+    &:hover {
+      color: rgba($color-font, 0.8);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    background-color: $color-shadow;
+    opacity: 0.6;
+  }
+
+  &.confirming {
+    color: $color-alert;
+  }
+}
+.containerLight {
+  &:hover {
+    background-color: $theme-light-hover;
+  }
+  &.primary {
+    &:hover {
+      &:active {
+        box-shadow: 0px 0px 10px 3px #229cfffd inset;
+      }
+    }
+
+    &.active {
+      // background-color: $color-shadow;
+      background-color: $theme-light-hover;
+      box-shadow: 0px 0px 10px 3px #229cfffd inset;
+      font-weight: bold;
+
+      .icon {
+        color: $color-active;
+      }
+    }
+  }
+
+  &.selected {
+    // background-color: $color-shadow;
+    background-color: $theme-light-hover;
+
+    &:hover {
+      color: rgba($color-font, 0.8);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    background-color: $color-shadow;
+    opacity: 0.6;
+  }
+
+  &.confirming {
+    color: $color-alert;
+  }
+}
 .button {
   display: flex;
   align-items: center;
@@ -35,43 +116,8 @@
     }
   }
 
-  &:hover {
-    background-color: $color-overlay;
-  }
-
-  &.primary {
-    &:hover {
-      &:active {
-        box-shadow: 0px 0px 10px 3px #1a1a1a inset;
-      }
-    }
-
-    &.active {
-      background-color: $color-shadow;
-      box-shadow: 0px 0px 10px 3px #1a1a1a inset;
-      font-weight: bold;
-
-      .icon {
-        color: $color-active;
-      }
-    }
-  }
-
-  &.selected {
-    background-color: $color-shadow;
-
-    &:hover {
-      color: rgba($color-font, 0.8);
-    }
-  }
-
   &.disabled {
     cursor: not-allowed;
-    background-color: $color-shadow;
     opacity: 0.6;
-  }
-
-  &.confirming {
-    color: $color-alert;
   }
 }

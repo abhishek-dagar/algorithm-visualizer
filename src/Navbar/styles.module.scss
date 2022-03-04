@@ -1,21 +1,33 @@
 @import "~common/stylesheet/index";
-.navigation {
+.openNav {
+  width: 220px;
+}
+.closeNav {
   width: 75px;
-  min-width: 75px;
+}
+.containerLight {
+  background-color: #24292f;
+  border-left: 10px solid #24292f;
+}
+.containerDark {
   background-color: #161b22;
-  border-right: 7px solid #0b7af8;
-  transition: width 0.5s;
   border-left: 10px solid #161b22;
+}
+.navigation {
+  min-width: 75px;
+  border-right: 5px solid #0b7af8;
+  transition: width 0.5s;
   overflow-x: hidden;
   .logoContainer {
     .Icon {
+      text-align: center;
       .logo {
         width: 40px;
         height: 40px;
         margin: 20px 6px;
         .image {
-          max-width: 100%;
-          max-height: 100%;
+          width: 30px;
+          height: 30px;
         }
       }
     }
@@ -68,20 +80,41 @@
       }
     }
   }
+  .ThemeBtn{
+    text-align: center;
+    background-color: #0b7af8;
+    border-radius: 50%;
+    width: 85%;
+    color: white;
+    .Btn{
+      font-size: 1.5rem;
+      margin: 12px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
+  .containerLight {
+    background-color: #24292f;
+    border-left: 10px solid #24292f;
+    .indicator {
+      border: 6px solid #24292f;
+    }
+  }
+  .containerDark {
+    background-color: $color-background;
+    border-left: 10px solid #161b22;
+    .indicator {
+      border: 6px solid $color-background;
+    }
+  }
   .navigation {
     width: 100%;
     height: 70px;
-    background-color: $color-background;
     border: 0;
     z-index: 2;
     border-right: 0;
     overflow-x: visible;
-    // &:hover {
-    //   width: 100%;
-    // }
     .logoContainer {
       display: none;
     }
@@ -144,7 +177,7 @@
             height: 60px;
             background-color: #0b99f8;
             border-radius: 50%;
-            border: 6px solid $color-background;
+            // border: 6px solid $color-background;
             transition: 0.5s;
           }
           .tooltip {

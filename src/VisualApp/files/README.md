@@ -16,14 +16,11 @@ Clone the project
   git clone https://github.com/abhishek-dagar/Algorithm-Visualizer.git
 ```
 
-Set up Algorithm-Visualizer-server from
-
-[https://github.com/abhishek-dagar/Algorithm-Visualizer-server](https://github.com/abhishek-dagar/Algorithm-Visualizer-server)
 
 Go to the project directory
 
 ```bash
-  cd Algorithm-Visualizer
+  cd algorithm-visualizer
 ```
 
 Install dependencies
@@ -32,14 +29,8 @@ Install dependencies
   npm install
 ```
 
-Add Proxy in package.json
-
-```bash
-  "proxy": "http://localhost:8080"
-```
-
 Start the server
 
 ```bash
-  npm start
+  yarn dev
 ```

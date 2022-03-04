@@ -1,5 +1,29 @@
 @import "~common/stylesheet/index";
 
+.array2DrendererDark {
+  .row {
+    .col {
+      background-color: $theme-normal;
+      border: 1px solid $theme-light;
+
+      &.index {
+        color: $theme-light;
+      }
+    }
+  }
+}
+.array2DrendererLight {
+  .row {
+    .col {
+      background-color: $theme-light-background;
+      border: 1px solid $theme-light-border;
+
+      &.index {
+        color: $theme-light-font;
+      }
+    }
+  }
+}
 .array_2d {
   flex-shrink: 0;
   display: table;
@@ -13,8 +37,6 @@
       display: table-cell;
       text-align: center;
       min-width: 28px;
-      background-color: $theme-normal;
-      border: 1px solid $theme-light;
       padding: 0 4px;
 
       .value {
@@ -35,7 +57,6 @@
       &.index {
         background: none;
         border: none;
-        color: $theme-light;
       }
     }
   }

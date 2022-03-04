@@ -9,15 +9,23 @@ import {
   faChartBar,
   faFileAlt,
   faInfoCircle,
+  faBars,
+  faTimes,
+  // faSun,
 } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "assets/logo.png";
 import Router from "next/router";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 const NavBar = (props) => {
   const opt = ["Home", "Algorithms", "Docs", "About"];
   const icon = [faHome, faChartBar, faFileAlt, faInfoCircle];
+  const [OpenNav, setOpenNav] = useState(false);
+  const [MenuBtn, setMenuBtn] = useState(faBars);
+  const wrapperRef = [];
+  const { Theme } = props.Theme;
   const links = [
     "/",
     {
@@ -51,21 +59,76 @@ const NavBar = (props) => {
   } else {
     activeLink = -1;
   }
+
   const changeActivelink = (n, path) => {
     Router.push(path);
     props.setCurrentNavTab(n);
   };
+  const NavBaropenclose = () => {
+    setOpenNav(!OpenNav);
+    if (!OpenNav) {
+      setMenuBtn(faTimes);
+    } else {
+      setMenuBtn(faBars);
+    }
+  };
+  const handleclickoutside = (event) => {
+    wrapperRef.forEach((Ref) => {
+      if (Ref.current && !Ref.current.contains(event.target)) {
+        setOpenNav(false);
+        setMenuBtn(faBars);
+      }
+    });
+  };
+
+  const ThemeChange = () => {
+    const { Theme } = props.Theme;
+    if (Theme === "Light") {
+      props.setTheme("Dark");
+    }
+    if (Theme === "Dark") {
+      props.setTheme("Light");
+    }
+  };
+
+  const customref = (refernce) => {
+    wrapperRef.push({ current: refernce });
+  };
+  useEffect(() => {
+    if (typeof document !== undefined) {
+      document.addEventListener("click", handleclickoutside);
+    }
+    return () => {
+      document.removeEventListener("click", handleclickoutside);
+    };
+  }, []);
   return (
     <>
-      <nav className={styles.navigation}>
+      <nav
+        className={classes(
+          props.className,
+          OpenNav ? styles.openNav : styles.closeNav,
+          styles.navigation,
+          Theme === "Light"
+            ? styles.containerLight
+            : Theme === "Dark"
+            ? styles.containerDark
+            : styles.containerLight
+        )}
+        ref={customref}
+      >
         <div className={styles.logoContainer}>
-          <Link href="/" onClick={() => changeActivelink(0)}>
-            <a className={styles.Icon}>
-              <div className={styles.logo}>
-                <Image className={styles.image} src={Logo} alt="AV"></Image>
-              </div>
-            </a>
-          </Link>
+          <div className={styles.Icon}>
+            <div className={styles.logo}>
+              {/* <Image className={styles.image} onClick={() => NavBaropenclose()} src={Logo} alt="AV"></Image> */}
+              <FontAwesomeIcon
+                className={classes(styles.image)}
+                fixedWidth
+                onClick={() => NavBaropenclose()}
+                icon={MenuBtn}
+              />
+            </div>
+          </div>
         </div>
         <div className={styles.navigationButtons}>
           <ul className={styles.navigationOptions}>
@@ -102,8 +165,19 @@ const NavBar = (props) => {
             })}
           </ul>
         </div>
+        {/* <div className={classes(styles.ThemeBtn)}>
+          <FontAwesomeIcon
+            className={classes(styles.Btn)}
+            fixedWidth
+            onClick={() => ThemeChange()}
+            icon={faSun}
+          />
+        </div> */}
       </nav>
     </>
   );
 };
-export default connect(({ current }) => ({ current }), actions)(NavBar);
+export default connect(
+  ({ current, Theme }) => ({ current, Theme }),
+  actions
+)(NavBar);

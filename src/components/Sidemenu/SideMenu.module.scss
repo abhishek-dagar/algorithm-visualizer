@@ -1,6 +1,14 @@
 @import "~common/stylesheet/index";
-.container__sidebar {
+.containerDark {
   border-right: 1px solid $theme-light;
+}
+.containerLight {
+  border-right: 1px solid $theme-light-border;
+  .mainKey {
+    border-bottom: 1px solid $theme-light-border;
+  }
+}
+.container__sidebar {
   .title {
     visibility: hidden;
   }
@@ -12,10 +20,9 @@
     top: 50px;
     .ExpandableList {
       font-size: 1rem;
-      padding-left: 1rem;
+      // padding-left: 1rem;
       margin-top: 16%;
       .mainKey {
-        border-bottom: 1px solid;
         display: block;
         font-weight: bold;
       }
@@ -32,9 +39,30 @@
   }
 }
 @media (max-width: 768px) {
+  .containerDark {
+    border-right: 1px solid $theme-light;
+    .MenuContainer {
+      .ExpandableList {
+        .list_container {
+          background-color: $color-background;
+        }
+      }
+    }
+  }
+  .containerLight {
+    border-right: 1px solid $theme-light-border;
+    .MenuContainer {
+      .ExpandableList {
+        .list_container {
+          background-color: $theme-light-background;
+          border: 1px solid $theme-light-border;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
   .container__sidebar {
     position: relative;
-    border-bottom: 1px solid $theme-light;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     z-index: 1;
     padding: 0;
@@ -62,7 +90,6 @@
         }
         .list_container {
           position: absolute;
-          background-color: $color-background;
           visibility: hidden;
         }
       }

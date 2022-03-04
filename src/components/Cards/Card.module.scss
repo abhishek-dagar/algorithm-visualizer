@@ -1,4 +1,65 @@
 @import "~common/stylesheet/index";
+.containerLight {
+  .card {
+    background-color: $theme-light-background;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    .details {
+      .about {
+        color: $theme-light-font;
+      }
+    }
+    &:hover {
+      background: linear-gradient(45deg, #b95ce4, #4f29cd);
+      .details {
+        .profileName {
+          color: #ff568f;
+        }
+        .about {
+          color: white;
+        }
+      }
+      .socialButton {
+        color: #ff568f;
+      }
+    }
+  }
+}
+.containerDark {
+  .card {
+    // background: linear-gradient(
+    //   90deg,
+    //   rgba(57, 68, 83, 1) 0%,
+    //   rgba(13, 17, 23, 1) 100%
+    // );
+    background-color: $theme-light-background;
+    .details {
+      .about {
+        color: $theme-light-font;
+      }
+    }
+    &:hover {
+      background: linear-gradient(
+        90deg,
+        rgba(57, 68, 83, 1) 0%,
+        rgba(13, 17, 23, 1) 100%
+      );
+      .details {
+        .profileName {
+          color: #ff568f;
+        }
+        .about {
+          color: white;
+        }
+      }
+      .socialButton {
+        color: #ff568f;
+      }
+    }
+    // .socialButton {
+    //   color: #0b7af8;
+    // }
+  }
+}
 .container {
   border-radius: 20px;
   width: 35%;
@@ -16,11 +77,6 @@
     align-items: flex-start;
     justify-content: center;
     border-radius: 20px;
-    background: linear-gradient(
-      90deg,
-      rgba(57, 68, 83, 1) 0%,
-      rgba(13, 17, 23, 1) 100%
-    );
     transition: 0.5s;
     padding: 5%;
     &:hover {
@@ -53,7 +109,6 @@
       .about {
         font-size: 15px;
         font-weight: 200;
-        color: white;
       }
     }
     .socialButton {

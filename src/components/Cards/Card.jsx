@@ -2,6 +2,9 @@ import React from "react";
 import styles from "./Card.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import { connect } from "react-redux";
+import { actions } from "reducers";
+import { classes } from "common/util";
 import {
   faFacebook,
   faGithub,
@@ -12,8 +15,18 @@ import { faUser } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Card = (props) => {
   const { name, description, photo } = props.info;
+  const { Theme } = props.Theme;
   return (
-    <div className={styles.container}>
+    <div
+      className={classes(
+        styles.container,
+        Theme === "Light"
+          ? styles.containerLight
+          : Theme === "Dark"
+          ? styles.containerDark
+          : styles.containerLight
+      )}
+    >
       <div className={styles.card}>
         <div className={styles.coverPhoto}>
           <div className={styles.profile}>
@@ -71,4 +84,4 @@ const Card = (props) => {
     </div>
   );
 };
-export default Card;
+export default connect(({ Theme }) => ({ Theme }), actions)(Card);

@@ -1,5 +1,19 @@
 @import "~common/stylesheet/index";
 
+.playerDark {
+  .speed {
+    &:hover {
+      background-color: $color-overlay;
+    }
+  }
+}
+.playerLight {
+  .speed {
+    &:hover {
+      background-color: $theme-light-hover;
+    }
+  }
+}
 .player {
   .progress_bar {
     width: 160px;
@@ -10,10 +24,6 @@
     align-items: center;
     padding: 0 12px;
     white-space: nowrap;
-
-    &:hover {
-      background-color: $color-overlay;
-    }
 
     .range {
       position: relative;

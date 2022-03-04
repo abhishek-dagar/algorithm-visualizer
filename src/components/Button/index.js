@@ -6,6 +6,8 @@ import faSpinner from "@fortawesome/fontawesome-free-solid/faSpinner";
 import { classes } from "common/util";
 import { Ellipsis } from "..";
 import styles from "./Button.module.scss";
+import { connect } from "react-redux";
+import { actions } from "reducers";
 
 class Button extends React.Component {
   constructor(props) {
@@ -42,9 +44,9 @@ class Button extends React.Component {
       active,
       confirmNeeded,
       inProgress,
-      ...rest
     } = this.props;
     const { confirming } = this.state;
+    const { Theme } = this.props.Theme;
 
     if (confirmNeeded) {
       if (confirming) {
@@ -81,6 +83,11 @@ class Button extends React.Component {
     const props = {
       className: classes(
         styles.button,
+        Theme === "Light"
+          ? styles.containerLight
+          : Theme === "Dark"
+          ? styles.containerDark
+          : styles.containerLight,
         reverse && styles.reverse,
         selected && styles.selected,
         disabled && styles.disabled,
@@ -111,7 +118,6 @@ class Button extends React.Component {
           )),
         children,
       ],
-      ...rest,
     };
 
     return to ? (
@@ -124,4 +130,4 @@ class Button extends React.Component {
   }
 }
 
-export default Button;
+export default connect(({ Theme }) => ({ Theme }), actions)(Button);

@@ -76,12 +76,23 @@ class Navigator extends React.Component {
     const { className } = this.props;
     const { categories } = this.props.directory;
     const { algorithm } = this.props.current;
+    const { Theme } = this.props.Theme;
 
     const categoryKey = algorithm && algorithm.categoryKey;
     const algorithmKey = algorithm && algorithm.algorithmKey;
 
     return (
-      <nav className={classes(styles.navigator, className)}>
+      <nav
+        className={classes(
+          styles.navigator,
+          Theme === "Light"
+            ? styles.containerLight
+            : Theme === "Dark"
+            ? styles.containerDark
+            : styles.containerLight,
+          className
+        )}
+      >
         <div className={styles.search_bar_container}>
           <FontAwesomeIcon
             fixedWidth
@@ -152,6 +163,6 @@ class Navigator extends React.Component {
 }
 
 export default connect(
-  ({ current, directory, env }) => ({ current, directory, env }),
+  ({ current, directory, env, Theme }) => ({ current, directory, env, Theme }),
   actions
 )(Navigator);

@@ -43,7 +43,7 @@ export const actions = {
   setCurrentNavTab,
 };
 
-const homeTitles = ["Algorithm Visualizer"];
+const homeTitles = ["Geeks Point"];
 const homeFiles = [
   { name: README_MD.name, content: README_MD.content },
 ];

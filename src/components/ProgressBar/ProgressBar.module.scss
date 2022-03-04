@@ -1,11 +1,29 @@
 @import "~common/stylesheet/index";
+.ProgressBarDark {
+  background-color: $theme-light;
+  .active {
+    background-color: $color-active;
+  }
+  .label {
+    color: $theme-dark;
+  }
+}
+
+.ProgressBarLight {
+  background-color: white;
+  .active {
+    background-color: $color-active;
+  }
+  .label {
+    color: $theme-dark;
+  }
+}
 
 .progress_bar {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  background-color: $theme-light;
   cursor: pointer;
   pointer-events: auto;
 
@@ -17,12 +35,10 @@
     position: absolute;
     height: 100%;
     left: 0;
-    background-color: $color-active;
   }
 
   .label {
     position: absolute;
-    color: $theme-dark;
 
     .current {
       font-weight: bold;
