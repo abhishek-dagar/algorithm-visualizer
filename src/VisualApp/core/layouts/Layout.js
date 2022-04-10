@@ -38,14 +38,14 @@ class Layout {
     this.ref.current.forceUpdate();
   }
 
-  render() {
+  render(Theme) {
     const horizontal = this instanceof HorizontalLayout;
 
     return (
       <ResizableContainer key={this.key} ref={this.ref} weights={this.weights} horizontal={horizontal}
                           onChangeWeights={this.handleChangeWeights}>
         {
-          this.children.map(tracer => tracer && tracer.render())
+          this.children.map(tracer => tracer && tracer.render(Theme))
         }
       </ResizableContainer>
     );

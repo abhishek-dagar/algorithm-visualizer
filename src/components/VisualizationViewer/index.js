@@ -53,7 +53,6 @@ class VisualizationViewer extends BaseComponent {
 
   applyCommand(command) {
     const { key, method, args } = command;
-    const { Theme } = this.props.Theme;
     try {
       if (key === null && method === "setRoot") {
         const [root] = args;
@@ -75,8 +74,7 @@ class VisualizationViewer extends BaseComponent {
         this.objects[key] = new TracerClass(
           key,
           (key) => this.objects[key],
-          title,
-          Theme
+          title
         );
       } else {
         this.objects[key][method](...args);
@@ -107,7 +105,7 @@ class VisualizationViewer extends BaseComponent {
         )}
       >
         {this.root ? (
-          this.root.render()
+          this.root.render(Theme)
         ) : (
           <div
             className={classes(

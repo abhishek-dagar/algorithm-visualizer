@@ -11,7 +11,7 @@ import {
   faInfoCircle,
   faBars,
   faTimes,
-  // faSun,
+  faSun,
 } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "assets/logo.png";
@@ -165,14 +165,14 @@ const NavBar = (props) => {
             })}
           </ul>
         </div>
-        {/* <div className={classes(styles.ThemeBtn)}>
+        <div className={classes(styles.ThemeBtn)}>
           <FontAwesomeIcon
             className={classes(styles.Btn)}
             fixedWidth
             onClick={() => ThemeChange()}
             icon={faSun}
           />
-        </div> */}
+        </div>
       </nav>
     </>
   );

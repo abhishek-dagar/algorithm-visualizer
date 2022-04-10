@@ -30,7 +30,10 @@
       height: 70px;
     }
     .fakeNav{
-      display: none;
+      height: 70px;
+      min-height: 70px;
+      width: 0;
+      min-width: 0;
     }
     .ComponentContainer {
       width: 100%;

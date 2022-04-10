@@ -5,33 +5,26 @@ import { connect } from "react-redux";
 import { languages } from "common/config";
 import Editor from "@monaco-editor/react";
 class VsCodeEditor extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.handleEditorDidMount=this.handleEditorDidMount.bind(this);
   }
-  handleEditorDidMount() {
-    const { Theme } = this.props.Theme;
-    if (Theme==="Dark"){
-      monaco.editor.defineTheme("my-theme", {
-        base: "vs-dark",
-        inherit: true,
-        rules: [{ background: "161b22" }],
-        colors: {
-          "editor.background": "#161b22",
-        },
-      });
-      monaco.editor.setTheme("my-theme");
-    }else{
-      monaco.editor.defineTheme("my-theme", {
-        base: "vs",
-        inherit: true,
-        rules: [{ background: "ebf5fc" }],
-        colors: {
-          "editor.background": "#ebf5fc",
-        },
-      });
-      monaco.editor.setTheme("my-theme");
-    }
+  setEditorTheme(monaco) {
+    monaco.editor.defineTheme("my-theme-dark", {
+      base: "vs-dark",
+      inherit: true,
+      rules: [{ background: "161b22" }],
+      colors: {
+        "editor.background": "#161b22",
+      },
+    });
+    monaco.editor.defineTheme("my-theme-light", {
+      base: "vs",
+      inherit: true,
+      rules: [{ background: "ebf5fc" }],
+      colors: {
+        "editor.background": "#ebf5fc",
+      },
+    });
   }
   handleEditorValidation(markers) {
     // markers.forEach((marker) => console.log("onValidate:", marker.message));
@@ -40,6 +33,8 @@ class VsCodeEditor extends Component {
     console.log("here is the current model value:", value);
   }
   render() {
+    const { Theme } = this.props.Theme;
+    const theme = "my-theme-light";
     const { editingFile } = this.props.current;
     if (!editingFile) return null;
     const fileExt = extension(editingFile.name);
@@ -56,6 +51,9 @@ class VsCodeEditor extends Component {
       wordWrap: "on",
       dragAndDrop: true,
     };
+    if(Theme=="Dark"){
+      theme="my-theme-dark";
+    }else{theme="my-theme-light";}
     return (
       <Editor
         language={mode}
@@ -64,6 +62,8 @@ class VsCodeEditor extends Component {
         value={editingFile.content}
         automaticLayout={true}
         options={options}
+        beforeMount={this.setEditorTheme}
+        theme={theme}
         onChange={(code) => {
           this.props.modifyFile(editingFile, code);
         }}

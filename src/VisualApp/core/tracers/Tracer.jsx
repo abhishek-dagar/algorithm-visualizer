@@ -2,11 +2,10 @@ import React from 'react';
 import { Renderer } from 'VisualApp/core/renderers';
 
 class Tracer {
-  constructor(key, getObject, title,Theme) {
+  constructor(key, getObject, title) {
     this.key = key;
     this.getObject = getObject;
     this.title = title;
-    this.Theme=Theme;
     this.init();
     this.reset();
   }
@@ -18,10 +17,10 @@ class Tracer {
   init() {
   }
 
-  render() {
+  render(Theme) {
     const RendererClass = this.getRendererClass();
     return (
-      <RendererClass key={this.key} title={this.title} data={this} Theme={this.Theme} />
+      <RendererClass key={this.key} title={this.title} data={this} Theme={Theme} />
     );
   }
 

@@ -31,9 +31,11 @@
     //   rgba(57, 68, 83, 1) 0%,
     //   rgba(13, 17, 23, 1) 100%
     // );
-    background-color: $theme-light-background;
+    // background-color: $theme-light-background;
+    background-color: #bebebe;
     .details {
       .about {
+        // color: white;
         color: $theme-light-font;
       }
     }
@@ -84,7 +86,7 @@
       box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
     }
     .coverPhoto {
-      background-color: grey;
+      background-color: #353535;
       height: auto;
       width: 150px;
       height: 150px;
@@ -107,8 +109,8 @@
         color: #0b7af8;
       }
       .about {
-        font-size: 15px;
-        font-weight: 200;
+        font-size: 20px;
+        font-weight: 400;
       }
     }
     .socialButton {

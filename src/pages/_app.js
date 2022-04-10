@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
       <Provider store={store}>
         <div className={styles.mainContainer}>
           <Navbar className={styles.navBar}/>
-          <div className={styles.fakeNav}>hel</div>
+          <div className={styles.fakeNav}></div>
           <div className={styles.ComponentContainer}>
             <Component {...pageProps} />
           </div>

@@ -80,7 +80,7 @@ class MarkdownRenderer extends Renderer {
   }
   renderData() {
     const { markdown } = this.props.data;
-    const { Theme } = this.props.Theme;
+    const { Theme } = this.props;
 
     return (
       <div
@@ -88,10 +88,10 @@ class MarkdownRenderer extends Renderer {
           styles.markdown,
           styles.container,
           Theme === "Light"
-            ? styles.containerDark
+            ? styles.containerLight
             : Theme === "Dark"
             ? styles.containerDark
-            : styles.containerDark
+            : styles.containerLight
         )}
       >
         <Markdown

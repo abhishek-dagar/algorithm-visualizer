@@ -106,14 +106,14 @@ class Renderer extends React.Component {
 
   render() {
     const { className, title } = this.props;
-    const { Theme } = this.props.Theme;
+    const { Theme } = this.props;
 
     return (
       <div
         className={classes(
           styles.renderer,
           Theme === "Light"
-            ? styles.rendererDark
+            ? styles.rendererLight
             : Theme === "Dark"
             ? styles.rendererDark
             : styles.rendererDark,
