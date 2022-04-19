@@ -8,7 +8,28 @@
     font-size: 14px;
   }
 
-  &.indent {
-    padding-left: 24px;
+  &.containerDark {
+    &.indent {
+      padding-left: 24px;
+      background-color: #4b4b4b33;
+      &:hover {
+        background-color: $color-overlay;
+      }
+    }
+    &.selected {
+      background-color: #55555580;
+    }
+  }
+  &.containerLight {
+    &.indent {
+      padding-left: 24px;
+      background-color: #d8ecfdf8;
+      &:hover {
+        background-color: #9ccff888;
+      }
+    }
+    &.selected {
+      background-color: #b8dffffd;
+    }
   }
 }

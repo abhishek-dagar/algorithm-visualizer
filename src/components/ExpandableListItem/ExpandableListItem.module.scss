@@ -11,11 +11,16 @@
 .containerDark {
   background-color: #161b22;
   border-bottom: 1px solid $theme-dark;
+  &.openedName {
+    background-color: #181818ef;
+  }
 }
 .containerLight {
   background-color: $theme-light-background-higlight;
-  // border-bottom: 1px solid #8d8c8c;
   .icon {
     color: $theme-light-font;
+  }
+  &.openedName {
+    background-color: #9ccff8fd;
   }
 }

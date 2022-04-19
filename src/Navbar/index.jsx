@@ -12,9 +12,10 @@ import {
   faBars,
   faTimes,
   faSun,
+  faMoon,
 } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Logo from "assets/logo.png";
+// import Logo from "assets/logo.png";
 import Router from "next/router";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -24,6 +25,7 @@ const NavBar = (props) => {
   const icon = [faHome, faChartBar, faFileAlt, faInfoCircle];
   const [OpenNav, setOpenNav] = useState(false);
   const [MenuBtn, setMenuBtn] = useState(faBars);
+  const [ThemeBtn, setThemeBtn] = useState(faSun);
   const wrapperRef = [];
   const { Theme } = props.Theme;
   const links = [
@@ -85,9 +87,11 @@ const NavBar = (props) => {
     const { Theme } = props.Theme;
     if (Theme === "Light") {
       props.setTheme("Dark");
+      setThemeBtn(faSun);
     }
     if (Theme === "Dark") {
       props.setTheme("Light");
+      setThemeBtn(faMoon);
     }
   };
 
@@ -95,6 +99,18 @@ const NavBar = (props) => {
     wrapperRef.push({ current: refernce });
   };
   useEffect(() => {
+    const Theme = localStorage.getItem("Theme");
+    if (Theme == null) {
+      props.setTheme("Dark");
+    } else {
+      props.setTheme(Theme);
+      if (Theme === "Light") {
+        setThemeBtn(faMoon);
+      }
+      if (Theme === "Dark") {
+        setThemeBtn(faSun);
+      }
+    }
     if (typeof document !== undefined) {
       document.addEventListener("click", handleclickoutside);
     }
@@ -165,15 +181,15 @@ const NavBar = (props) => {
             })}
           </ul>
         </div>
-        <div className={classes(styles.ThemeBtn)}>
-          <FontAwesomeIcon
-            className={classes(styles.Btn)}
-            fixedWidth
-            onClick={() => ThemeChange()}
-            icon={faSun}
-          />
-        </div>
       </nav>
+      <div className={classes(styles.ThemeBtn)}>
+        <FontAwesomeIcon
+          className={classes(styles.Btn)}
+          fixedWidth
+          onClick={() => ThemeChange()}
+          icon={ThemeBtn}
+        />
+      </div>
     </>
   );
 };

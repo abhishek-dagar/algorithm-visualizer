@@ -17,7 +17,7 @@ class ExpandableListItem extends React.Component {
     return opened ? (
       <div className={classes(styles.expandable_list_item, className)}>
         <ListItem
-          className={classes(styles.category)}
+          className={classes(styles.openedName, styles.category, className)}
           {...props}
         >
           <FontAwesomeIcon className={styles.icon} fixedWidth icon={icons[0]} />

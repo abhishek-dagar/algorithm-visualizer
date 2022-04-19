@@ -14,6 +14,7 @@ export default handleActions(
   {
     [setTheme]: (state, { payload }) => {
       const { Theme } = payload;
+      localStorage.setItem("Theme", Theme);
       return {
         ...state,
         Theme: Theme,

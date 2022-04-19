@@ -80,16 +80,20 @@
       }
     }
   }
-  .ThemeBtn{
-    text-align: center;
-    background-color: #0b7af8;
-    border-radius: 50%;
-    width: 52px;
-    color: white;
-    .Btn{
-      font-size: 1.5rem;
-      margin: 12px;
-    }
+}
+.ThemeBtn {
+  position: absolute;
+  right: 1%;
+  bottom: 5%;
+  z-index: 1000;
+  text-align: center;
+  background-color: #0b7af8;
+  border-radius: 50%;
+  width: 52px;
+  color: white;
+  .Btn {
+    font-size: 1.5rem;
+    margin: 12px;
   }
 }
 
@@ -107,6 +111,9 @@
     .indicator {
       border: 6px solid $color-background;
     }
+  }
+  .ThemeBtn{
+    bottom: 14%;
   }
   .navigation {
     width: 100%;
