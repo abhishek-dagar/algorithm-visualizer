@@ -4,6 +4,7 @@ import { Ellipsis } from "components";
 import styles from "./tabs.module.scss";
 import { classes, extension } from "common/util";
 import { PythonIcon, JsIcon, MarkdownIcon } from "assets/icons";
+import AutosizeInput from "react-input-autosize";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faPlus } from "@fortawesome/fontawesome-free-solid";
 import { actions } from "reducers";
@@ -61,9 +62,16 @@ const Tabs = (props) => {
               styles.selected
             )}
             key={i}
+            onClick={() => props.setEditingFile(file)}
           >
             <Image src={iconName[i]} alt="lang" width={20} height={20}></Image>
-            <Ellipsis className={styles.filename}>{file.name}</Ellipsis>
+            <AutosizeInput
+              className={styles.filename}
+              value={file.name}
+              onClick={(e) => e.stopPropagation()}
+              onChange={(e) => props.renameFile(file, e.target.value)}
+            />
+            {/* <Ellipsis className={styles.filename}>{file.name}</Ellipsis> */}
           </div>
         ) : (
           <div

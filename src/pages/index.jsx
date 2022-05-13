@@ -1,11 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
 import SS from "assets/screenshot.png";
 import styles from "styles/Home.module.scss";
-import { bgImg } from "assets";
 import { classes } from "common/util";
 import { connect } from "react-redux";
 import { actions } from "reducers";
+import router from "next/router";
 
 import React, { Component } from "react";
 
@@ -13,6 +12,16 @@ class Home extends Component {
   constructor(props) {
     super();
     this.props = props;
+    this.state = {
+      buttonText: "Login",
+      bottonLink: "/",
+    };
+  }
+  componentDidMount() {
+    if (localStorage.getItem("userToken")) {
+      this.setState({buttonText:"Get Started"})
+      // router.push("/profile");
+    }
   }
   render() {
     const { Theme } = this.props.Theme;
@@ -28,23 +37,21 @@ class Home extends Component {
               : styles.containerLight
           )}
         >
-          <div className={styles.BgImage}>
-            <div className={styles.imgContainer}>
-              <Image className={styles.image} src={bgImg} alt="" />
-            </div>
-          </div>
           <div className={styles.container}>
             <h1 className={styles.title}>
-              <strong>Geeks Point</strong>
+              <strong>Algorithm Visualizer</strong>
             </h1>
             <div className={styles.textContainer}>
               <h1>
                 Learn Algorithms with <strong>Algorithm Visualizer</strong>
               </h1>
               <h2>We are Team of Developers</h2>
-              <Link href="/documentation/GetStarted/Introduction">
-                <a>Get Started</a>
-              </Link>
+              <div
+                className={styles.Btn}
+                onClick={() => this.props.openLoginPopUP()}
+              >
+                {this.state.buttonText}
+              </div>
             </div>
           </div>
           <div className={styles.QuoteContainer}>

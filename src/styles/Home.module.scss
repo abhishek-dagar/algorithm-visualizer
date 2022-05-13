@@ -7,7 +7,7 @@
   }
   .container {
     .textContainer {
-      a:hover {
+      .Btn:hover {
         box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
       }
     }
@@ -21,7 +21,7 @@
   }
   .container {
     .textContainer {
-      a:hover {
+      .Btn:hover {
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
       }
     }
@@ -48,15 +48,17 @@
       h2 {
         margin-bottom: 4%;
       }
-      a {
+      .Btn {
         font-size: 15px;
         font-weight: bold;
         padding: 20px 30px;
         border-radius: 30px;
         background-color: #0b7af8;
         color: beige;
+        width: 150px;
+        margin: auto;
       }
-      a:hover {
+      .Btn:hover {
         border: none;
         transition: 0.2s;
         font-size: 17px;
@@ -86,7 +88,7 @@
     }
     h2 {
       width: 50%;
-      z-index: 1;
+      // z-index: 1;
     }
   }
 }
@@ -104,7 +106,7 @@
         margin-top: 4%;
       }
       .textContainer {
-        a {
+        .Btn {
           background-color: #0b7af8;
         }
       }
@@ -146,7 +148,7 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        a {
+        .Btn {
           width: 150px;
         }
       }
@@ -164,7 +166,7 @@
   .mainContainer {
     .container {
       .textContainer {
-        a {
+        .Btn {
           font-size: 16px;
           &:hover {
             transition: none;

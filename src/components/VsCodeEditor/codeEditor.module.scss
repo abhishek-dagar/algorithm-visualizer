@@ -1,0 +1,37 @@
+@import "~common/stylesheet/index";
+
+.contributors_viewer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 4px;
+  background-color: #0d1117;
+
+  .empty {
+    display: flex;
+    flex: 1 1;
+    // height: 20px;
+  }
+
+  .save {
+    height: $line-height;
+    background-color: #21262d;
+    border: 1px solid #f0f6fc1a;
+    border-radius: 6px;
+    margin-right: 12px;
+    &:hover {
+      background-color: #1f6feb;
+    }
+  }
+  .delete {
+    color: #f85149;
+    background-color: #2d2121;
+    border: 1px solid #f0f6fc1a;
+    border-radius: 6px;
+    margin-right: 12px;
+    &:hover {
+      background-color: #f85149;
+      color: #ffffff;
+    }
+  }
+}

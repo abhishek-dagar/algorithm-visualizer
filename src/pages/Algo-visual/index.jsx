@@ -7,7 +7,7 @@ export default function VisualPage() {
   const params = router.query;
   return (
     <>
-      <App match={{params}}/>
+      <App match={{params}} navigator/>
     </>
   );
 }

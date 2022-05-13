@@ -7,14 +7,22 @@
   .node {
     .circle {
       fill: $theme-light;
+      // fill: blue;
       stroke: $color-font;
       stroke-width: 1;
+      &.GraphrendererLight {
+        fill: #ebf5fc;
+        stroke: #040404;
+      }
     }
 
     .id {
       fill: $color-font;
       alignment-baseline: central;
       text-anchor: middle;
+      &.GraphrendererLight {
+        fill: #040404;
+      }
     }
 
     .weight {
@@ -43,6 +51,9 @@
     .line {
       stroke: $color-font;
       stroke-width: 2;
+      &.GraphrendererLight {
+        stroke: #040404;
+      }
 
       &.directed {
         marker-end: url(#markerArrow);
@@ -86,6 +97,9 @@
 
   .arrow {
     fill: $color-font;
+    &.GraphrendererLight {
+      fill: #040404;
+    }
 
     &.selected {
       fill: $color-selected;

@@ -17,7 +17,6 @@
   min-width: 75px;
   border-right: 5px solid #0b7af8;
   transition: width 0.5s;
-  overflow-x: hidden;
   .logoContainer {
     .Icon {
       text-align: center;
@@ -73,10 +72,23 @@
           width: 100%;
           padding-left: 20px;
           background-color: transparent;
+          overflow: hidden;
         }
         &:hover {
           color: white;
         }
+      }
+    }
+  }
+  .mainDropdown {
+    position: relative;
+    overflow: visible;
+    // display: inline;
+    width: 45px;
+    .profileBtn {
+      img {
+        width: 45px;
+        height: 45px;
       }
     }
   }
@@ -112,7 +124,7 @@
       border: 6px solid $color-background;
     }
   }
-  .ThemeBtn{
+  .ThemeBtn {
     bottom: 14%;
   }
   .navigation {

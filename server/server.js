@@ -21,8 +21,14 @@ app.prepare().then(() => {
     res.setHeader("Access-Control-Allow-Credentials", true);
     next();
   });
+
+
   const apiroute = require("./Routes/APIrouter.router");
   server.use("/api", apiroute);
+
+  const userroute = require("./Routes/UserRouter.router");
+  server.use("/user", userroute);
+  
   server.get("*", (req, res) => {
     handle(req, res);
   });

@@ -1,0 +1,88 @@
+@import "~common/stylesheet/index";
+
+.Form {
+  border: 1px solid #f0f6fc1a;
+  padding: 18px;
+  border-radius: 6px;
+  background-color: #161b22;
+  .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.5rem;
+    max-width: 100%;
+    &.verticalrow {
+      flex-direction: row;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 400;
+      text-align: left;
+      font-size: 14px;
+      width: 95%;
+    }
+    .InpurField {
+      margin-top: 4px;
+      margin-bottom: 16px;
+      display: block;
+      width: 100%;
+      padding: 5px 12px;
+      font-size: 14px;
+      line-height: 20px;
+      color: #c9d1d9;
+      vertical-align: middle;
+      background-color: #0d1117;
+      background-repeat: no-repeat;
+      background-position: right 8px center;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      box-shadow: 0 0 transparent;
+      &:focus {
+        box-shadow: inset 0px -3px 0px 0px rgba(34, 193, 195, 0.7);
+        outline: none;
+      }
+      &::-webkit-input-placeholder {
+        opacity: 1;
+        transition: opacity 0.25s ease-out;
+      }
+      &:hover::-webkit-input-placeholder,
+      &:focus::-webkit-input-placeholder {
+        opacity: 0;
+      }
+    }
+    button {
+      display: block;
+      width: 100%;
+      text-align: center;
+      color: #ffffff;
+      background-color: #238636;
+      border-color: #f0f6fc1a;
+      box-shadow: 0 0 transparent, 0 0 transparent;
+      transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+      transition-property: color, background-color, box-shadow, border-color;
+      position: relative;
+      padding: 5px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      user-select: none;
+      border-radius: 6px;
+      appearance: none;
+      margin: 0 20px;
+      &:hover {
+        background-color: #2ea043;
+      }
+    }
+    .cancel {
+      background-color: #21262d;
+      border: 1px solid #f0f6fc1a;
+      &:hover {
+        background-color: #21262d;
+      }
+    }
+  }
+}

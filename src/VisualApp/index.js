@@ -12,7 +12,7 @@ import {
   VisualizationViewer,
   VsCodeEditor,
 } from "../components";
-import { AlgorithmApi } from "apis";
+import { AlgorithmApi, userApi } from "apis";
 import { actions } from "reducers";
 import { extension } from "common/util";
 import { exts } from "common/config";
@@ -41,6 +41,9 @@ class App extends BaseComponent {
         this.setState({ workspaceWeights: [0.2, 1] });
       }
     }
+    if (this.props.navigator === false) {
+      this.toggleNavigatorOpened();
+    }
 
     AlgorithmApi.getCategories()
       .then(({ categories }) => {
@@ -64,8 +67,24 @@ class App extends BaseComponent {
     }
   }
 
-  loadAlgorithm({ categoryKey, algorithmKey }) {
+  loadAlgorithm({ categoryKey, algorithmKey, UserToken, UserCode }) {
     const fetch = () => {
+      if (UserToken && UserCode) {
+        return userApi
+          .getUserData({ userToken: UserToken })
+          .then(({ userData }) => {
+            const files = userData.userCodeData;
+            const tempfile = files.find((elements) => {
+              return elements.foldername === UserCode;
+            });
+            const file = { name: tempfile.name, content: tempfile.content };
+            const algorithm = {
+              categoryName: tempfile.foldername,
+              files: [file],
+            };
+            this.props.setAlgorithm(algorithm);
+          });
+      }
       if (categoryKey && algorithmKey) {
         return AlgorithmApi.getAlgorithm(categoryKey, algorithmKey).then(
           ({ algorithm }) => {
@@ -130,6 +149,8 @@ class App extends BaseComponent {
             className={styles.header}
             onClickTitleBar={this.handleClickTitleBar}
             navigatorOpened={navigatorOpened}
+            navigator={this.props.navigator}
+            newFile={this.props.newFile}
             // ignoreHistoryBlock={this.ignoreHistoryBlock}
           />
           <ResizableContainer
@@ -139,9 +160,13 @@ class App extends BaseComponent {
             visibles={workspaceVisibles}
             onChangeWeights={this.handleChangeWorkspaceWeights}
           >
-            <Navigator onClickTitleBar={this.handleClickTitleBar} />
+            {this.props.navigator ? (
+              <Navigator onClickTitleBar={this.handleClickTitleBar} />
+            ) : (
+              <></>
+            )}
             <TabContainer className={styles.editor_tab_container}>
-              <VsCodeEditor />
+              <VsCodeEditor newFile={this.props.newFile} user={this.props.user}/>
               <VisualizationViewer className={styles.visualization_viewer} />
             </TabContainer>
           </ResizableContainer>

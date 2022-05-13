@@ -13,17 +13,25 @@ import {
   faTimes,
   faSun,
   faMoon,
+  faCode,
 } from "@fortawesome/fontawesome-free-solid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import Logo from "assets/logo.png";
 import Router from "next/router";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { UserMenu } from "components";
 
 const NavBar = (props) => {
-  const opt = ["Home", "Algorithms", "Docs", "About"];
-  const icon = [faHome, faChartBar, faFileAlt, faInfoCircle];
+  const opt = ["Home", "Algorithms", "Docs", "About", "CodeSpace"];
+  const icon = [faHome, faChartBar, faFileAlt, faInfoCircle, faCode];
+  const userAvatar = [
+    "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+    "https://cdn-icons-png.flaticon.com/512/4333/4333609.png",
+  ];
+  const [userToken, setuserToken] = useState(undefined);
   const [OpenNav, setOpenNav] = useState(false);
+  const [dropdownVisible, setdropdownVisible] = useState(false);
   const [MenuBtn, setMenuBtn] = useState(faBars);
   const [ThemeBtn, setThemeBtn] = useState(faSun);
   const wrapperRef = [];
@@ -35,11 +43,13 @@ const NavBar = (props) => {
     },
     "/documentation/GetStarted/Introduction",
     "/about",
+    "/CodeSpace",
   ];
   const location = useRouter();
   let activeLink = props.current.currentTab;
   if (
-    location.pathname.split("/")[1] === "" &&
+    (location.pathname.split("/")[1] === "" ||
+      location.pathname.split("/")[1] === "profile") &&
     (activeLink !== 0 || activeLink === 0)
   ) {
     activeLink = 0;
@@ -58,6 +68,11 @@ const NavBar = (props) => {
     (activeLink !== 3 || activeLink === 3)
   ) {
     activeLink = 3;
+  } else if (
+    location.pathname.split("/")[1] === links[4].split("/")[1] &&
+    (activeLink !== 4 || activeLink === 4)
+  ) {
+    activeLink = 4;
   } else {
     activeLink = -1;
   }
@@ -83,6 +98,10 @@ const NavBar = (props) => {
     });
   };
 
+  const handleDropDown = () => {
+    setdropdownVisible(!dropdownVisible);
+  };
+
   const ThemeChange = () => {
     const { Theme } = props.Theme;
     if (Theme === "Light") {
@@ -100,6 +119,7 @@ const NavBar = (props) => {
   };
   useEffect(() => {
     const Theme = localStorage.getItem("Theme");
+    setuserToken(localStorage.getItem("userToken"));
     if (Theme == null) {
       props.setTheme("Dark");
     } else {
@@ -149,6 +169,9 @@ const NavBar = (props) => {
         <div className={styles.navigationButtons}>
           <ul className={styles.navigationOptions}>
             {icon.map((iconName, i) => {
+              if (i === 4 && !props.LoggedIn) {
+                return <div key={i}></div>;
+              }
               return (
                 <Link href={links[i]} key={i}>
                   <a
@@ -180,6 +203,23 @@ const NavBar = (props) => {
               );
             })}
           </ul>
+        </div>
+        <div className={styles.mainDropdown}>
+          <div className={classes(styles.profileBtn)}>
+            <img
+              src={userToken ? userAvatar[1] : userAvatar[0]}
+              alt=""
+              onClick={handleDropDown}
+            />
+          </div>
+          {dropdownVisible ? (
+            <UserMenu
+              handleDropDown={handleDropDown}
+              LoggedIn={props.LoggedIn}
+            />
+          ) : (
+            <></>
+          )}
         </div>
       </nav>
       <div className={classes(styles.ThemeBtn)}>

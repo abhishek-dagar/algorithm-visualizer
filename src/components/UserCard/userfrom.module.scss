@@ -1,0 +1,81 @@
+.userForm {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  float: left !important;
+  width: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  .mb2 {
+    margin-bottom: 8px !important;
+  }
+  .fromControl {
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #c9d1d9;
+    vertical-align: middle;
+    background-color: #0d1117;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+  }
+  .bioField {
+    height: 74px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    line-height: 1.5;
+    margin-bottom: 4px !important;
+    width: 100% !important;
+  }
+  .NameField {
+    width: 100% !important;
+  }
+  .from {
+    position: relative !important;
+    flex: auto !important;
+    display: block;
+    margin-top: 0em;
+  }
+  label {
+    display: block !important;
+    margin-bottom: 4px !important;
+    font-weight: 600;
+  }
+  .btnContainer {
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+    button {
+      position: relative;
+      display: inline-block;
+      padding: 5px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+      border: 1px solid;
+      border-radius: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+      font-size: 12px;
+      line-height: 20px;
+      margin: 4px;
+    }
+    .btnSubmit {
+      padding: 3px 12px;
+      color: #ffffff;
+      background-color: #238636;
+      border-color: #f0f6fc1a;
+    }
+    .btnCancel {
+      padding: 3px 12px;
+      color: #c9d1d9;
+      background-color: #21262d;
+      border-color: #f0f6fc1a;
+    }
+  }
+}

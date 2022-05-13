@@ -1,0 +1,3 @@
+{
+  "ignore": ["server/UserData/*.json", "./src/"]
+}

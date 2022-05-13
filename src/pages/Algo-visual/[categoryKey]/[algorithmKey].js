@@ -10,7 +10,7 @@ export default function algorithm(props) {
   const params = props.params;
   return (
     <>
-      <APP match={{ params }} />
+      <APP match={{ params }} navigator/>
     </>
   );
 }

@@ -5,7 +5,13 @@ axios.interceptors.response.use((response) => response.data);
 
 const request = (url, process) => {
   const tokens = url.split("/");
-  const baseURL = /^https?:\/\//i.test(url) ? "" : "/api";
+  // console.log(tokens);
+  let baseURL = "";
+  if (tokens[1] === "user") {
+    baseURL = /^https?:\/\//i.test(url) ? "" : "";
+  } else {
+    baseURL = /^https?:\/\//i.test(url) ? "" : "/api";
+  }
   return (...args) => {
     const mappedURL =
       baseURL +
@@ -91,4 +97,13 @@ const TracerApi = {
   py: POST("/tracers/py"),
 };
 
-export { AlgorithmApi, TracerApi, DocsApi };
+const userApi = {
+  signUp: POST("/user/signup"),
+  signIn: POST("/user/signin"),
+  getUserData: POST("/user/getuserdata"),
+  updateUserData: POST("/user/updateuserData"),
+  updateuserCodeData: POST("/user/updateuserCodeData"),
+  addnewCodeData: POST("/user/addnewCodeData"),
+  deletuserCodeData: POST("/user/deletuserCodeData"),
+};
+export { AlgorithmApi, TracerApi, DocsApi, userApi };

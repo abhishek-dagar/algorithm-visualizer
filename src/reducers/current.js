@@ -13,7 +13,10 @@ const setAlgorithm = createAction(
     files,
   })
 );
-const setCurrentNavTab = createAction(`${prefix}/SET_CURRENT_NAVBAR_TAB`,(currentTab)=>({currentTab}))
+const setCurrentNavTab = createAction(
+  `${prefix}/SET_CURRENT_NAVBAR_TAB`,
+  (currentTab) => ({ currentTab })
+);
 const setEditingFile = createAction(`${prefix}/SET_EDITING_FILE`, (file) => ({
   file,
 }));
@@ -30,6 +33,7 @@ const modifyFile = createAction(`${prefix}/MODIFY_FILE`, (file, content) => ({
   content,
 }));
 const deleteFile = createAction(`${prefix}/DELETE_FILE`, (file) => ({ file }));
+const saveFile = createAction(`${prefix}/SAVE_FILE`, (file) => ({ file }));
 
 export const actions = {
   setHome,
@@ -41,12 +45,11 @@ export const actions = {
   deleteFile,
   renameFile,
   setCurrentNavTab,
+  saveFile,
 };
 
-const homeTitles = ["Geeks Point"];
-const homeFiles = [
-  { name: README_MD.name, content: README_MD.content },
-];
+const homeTitles = ["Algorithm Visualizer"];
+const homeFiles = [{ name: README_MD.name, content: README_MD.content }];
 const defaultState = {
   algorithm: {
     categoryKey: "algorithm-visualizer",
@@ -95,9 +98,10 @@ export default handleActions(
     },
     [modifyTitle]: (state, { payload }) => {
       const { title } = payload;
+      
       const newState = {
         ...state,
-        titles: [state.titles[0], title],
+        titles: [title, state.titles[1]],
       };
       return {
         ...newState,
@@ -147,6 +151,19 @@ export default handleActions(
       return {
         ...newState,
         saved: isSaved(newState),
+      };
+    },
+    [saveFile]: (state, { payload }) => {
+      const { file } = payload;
+      const files = [file];
+      const newState = {
+        ...state,
+        files,
+        shouldBuild: true,
+      };
+      return {
+        ...newState,
+        saved: true,
       };
     },
   },
