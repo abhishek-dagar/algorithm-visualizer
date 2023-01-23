@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const { signup } = require("../models/signup");
-const { signin } = require("../models/signin");
+const { signin } = require("../models/signIn");
 const { UserData } = require("../models/updateUserData");
 
 router.post("/signup", (req, res) => {
