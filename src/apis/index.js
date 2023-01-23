@@ -77,7 +77,7 @@ const TracerApi = {
       // const worker = new Worker(
       //   new URL("http://localhost:4000/api/tracers/js")
       // );
-      const worker = new Worker(new URL("https://geekspoint.herokuapp.com/api/tracers/js"));
+      const worker = new Worker(new URL("https://geekspoint.onrender.com/api/tracers/js"));
       if (cancelToken) {
         cancelToken.promise.then((cancel) => {
           worker.terminate();
